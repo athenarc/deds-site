@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------
+DEDS: 15 Fully funded PhD Positions in Data Engineering for Data Science
+-------------------------------------------------------------------------
+
+The newly funded H2020 Marie-Sklodowska-Curie Actions European Joint Doctorate DEDS is recruiting 15 PhD students (Early-Stage Researchers). 
+
+   * Application deadline: 7 February 2021
+   * Starting date: Fall 2021
+
+Data is a key asset in modern society. Data Science, which focuses on deriving valuable insight and knowledge from raw data, is indispensable for any economic, governmental, and scientific activity. Data Engineering provides the data ecosystem (i.e., data management pipelines, tools, and services) that makes Data Science possible. The European Joint Doctorate in "Data Engineering for Data Science" (DEDS) is designed to develop education, research, and innovation at the intersection of Data Science and Data Engineering. Its core objective is to provide holistic support for the end-to-end management of the full lifecycle of data, from capture to exploitation by data scientists.
+
+DEDS is a 3-year doctoral program based on a co-tutelle model. A complementary set of 15 joint doctoral projects focus on the main aspects of holistic management of the full data lifecycle. Each doctoral project is co-supervised by two institutions and includes a secondment in a partner organization, which grounds the research in practice and validate the proposed solutions. DEDS delivers innovative training comprising technical and transversal courses, four jointly organized summer and winter schools, as well as dissemination activities including open science events and a final conference. Upon graduation, a joint degree from the universities of the co-tutelle will be awarded.
+
+DEDS operates under the Horizon 2020 - Marie Skłodowska-Curie Innovative Training Networks European Joint Doctorate (H2020-MSCA-ITN-2020) framework. It is jointly organized by: 
+
+   * Universite Libre de Bruxelles (Belgium) 
+   * Universitat Politecnica de Catalunya (Spain) 
+   * Aalborg Universitet (Denmark) 
+   * Athena Research and Innovation Centre (Greece) 
+
+Partner organizations from research, industry, and the public sector prominently contribute to the program by training students and providing secondments in a wide range of domains including Energy, Finance, Health, Transport, and Customer Relationship and Support.
+
+The 15 PhD positions are fully funded under a single, 3-year employment contract, which also provides social security coverage, holiday rights, parental leave rights, pension provision, health-care insurance, and accident coverage at work. An extra mobility allowance and a family allowance will also be provided. 
+
+For more details on each position, eligibility criteria, and the application process, please visit the following links: 
+
+DEDS Website: https://deds.ulb.ac.be
+Euraxess job posting: https://euraxess.ec.europa.eu/jobs/585978
+

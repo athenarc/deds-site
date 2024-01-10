@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>DEDS - Data Engineering for Data Science</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="deds.min.css">
+<script src="deds.min.js"></script>
+
+
+<body>
+
+<div id="page" class="">
+
+  <!-- Page header -->
+  <div id="pheader" class="flex-container">
+
+    <div id="slideshow">
+      <img class="active" src="images/aalborg_banner.png" />
+      <img src="images/athens_banner.png" />
+      <img src="images/barcelona_banner.png" />
+      <img src="images/brussels_banner.png" />
+      <img src="images/night_athens_banner.png" />
+      <img src="images/night_aalborg_banner.png" />
+      <img src="images/night_barcelona_banner.png" />
+      <img src="images/night_brussels_banner.png" />
+    </div>
+
+    <div id="titleBox">
+      <span>DEDS - Data Engineering for Data Science</span>
+    </div>
+    
+    <div id="logoBox">
+      <span>
+          <img src="images/logocmpl.png" style="" />
+          <!-- <img src="images/logo_s.png" style="" /> -->
+        </span>
+    </div>
+  </div>
+
+
+  <!-- Page content -->
+  <div id="pcontent">
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="w3-bar w3-theme w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+        <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><img src="images/logo_s.png" style="width:50px;height:50px;" /></a> -->
+        <a id="nfrmAbout" href="#About" onclick="togglePage('frmAbout');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+        <a id="nfrmWhy" href="#Why" onclick="togglePage('frmWhy');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hover-white">Why DEDS</a>
+        <a id="nfrmProgramme" href="#Programme" onclick="togglePage('frmProgramme');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hover-white">Programme</a>
+        <a id="nfrmTopics" href="#Topics" onclick="togglePage('frmTopics');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hover-white">Topics</a>
+        <a id="nfrmPartners" href="#Partners" onclick="togglePage('frmPartners');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hover-white">Organisers</a>
+        <a id="nfrmApply" href="#Apply" onclick="togglePage('frmApply');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">How to apply</a>
+        <a id="nfrmEvents" href="#Events" onclick="togglePage('frmEvents');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Events</a>
+        <!-- <a id="nfrmFaq" href="#Faq" onclick="togglePage('frmFaq');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">FAQ</a> -->
+        <a id="nfrmDocuments" href="#Documents" onclick="togglePage('frmDocuments');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Documents</a>
+        <a id="nfrmContact" href="#Contact" onclick="togglePage('frmContact');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Contact</a>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-color w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+        <i class="fa fa-remove"></i>
+      </a>
+      <h4 class="w3-bar-item"><b>Navigation</b></h4>
+      <a id="sfrmAbout" href="#About" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmAbout');">About</a>
+      <a id="sfrmWhy" href="#Why" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmWhy');">Why DEDS</a>
+      <a id="sfrmProgramme" href="#Programme" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmProgramme');">Programme</a>
+      <a id="sfrmTopics" href="#Topics" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmTopics');">Topics</a>
+      <a id="sfrmPartners" href="#Partners" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmPartners');">Organisers</a>
+      <a id="sfrmApply" href="#Apply" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmApply');">How to apply</a>
+      <a id="sfrmEvents" href="#Events" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmEvents');">Events</a>
+      <!-- <a id="sfrmFaq" href="#Faq" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmFaq');">FAQ</a> -->
+      <a id="sfrmDocuments" href="#Documents" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmDocuments');">Documents</a>
+      <a id="sfrmContact" href="#Contact" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmContact');">Contact</a>
+    </nav>
+
+    <!-- Overlay effect for sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!-- Main content (shift right 250 pixels when sidebar is visible) -->
+    <div class="w3-main" style="margin-left:250px">
+
+      <!-- About -->
+      <div id="frmAbout" class="frmClass w3-row w3-padding-32 active">
+
+        <div class="w3-row w3-twothird w3-container">
+
+          <h1 class="w3-text-teal">What is DEDS</h1>
+          <p>Data is a key asset in modern society. Data Science, which focuses on deriving valuable insight and knowledge from raw data, is indispensable for any economic, governmental, and scientific activity. Data Engineering provides the data ecosystem (i.e., data management pipelines, tools and services) that makes Data Science possible. The European Joint Doctorate in "Data Engineering for Data Science" (DEDS) is designed to develop education, research, and innovation at the intersection of Data Science and Data Engineering. Its core objective is to provide holistic support for the end-to-end management of the full lifecycle of data, from capture to exploitation by data scientists.</p>
+
+          <p>DEDS 
+          <img id="logoBoxInline" src="images/logocmpl.png" style="" />            
+          operates under the Horizon 2020 - Marie Skłodowska-Curie Innovative Training Networks (H2020-MSCA-ITN-2020) framework. It is jointly organised by Université Libre de Bruxelles (Belgium), Universitat Politècnica de Catalunya (Spain), Aalborg Universitet (Denmark), and the Athena Research and Innovation Centre (Greece). Partner organisations from research, industry and the public sector prominently contribute to the programme by training students and providing secondments in a wide range of domains including Energy, Finance, Health, Transport, and Customer Relationship and Support.</p>
+
+          <p> DEDS is a 3-year doctoral programme based on a co-tutelle model. A complementary set of 15 joint, fully funded, doctoral projects focus on the main aspects of holistic management of the full data lifecycle. Each doctoral project is co-supervised by two beneficiaries and includes a secondment in a partner organisation, which grounds the research in practice and validate the proposed solutions. DEDS delivers innovative training comprising technical and transversal courses, four jointly organized summer and winter schools, as well as dissemination activities including open science events and a final conference. Upon graduation, a joint degree from the universities of the co-tutelle will be awarded.</p>
+
+          <p><img src="images/eu_logo_s.png" style="float:left;width:50px;margin-right: 5px;padding-top: 5px; padding-bottom: 5px;" /> This project has received funding from the European Union's Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No 955895.</p>
+
+          <div class="w3-panel w3-leftbar w3-light-grey w3-padding-16">
+            <p><b>NEW: Applications are <a href="#" onclick="togglePage('frmApply');">open</a>! Check for available <a href="#" onclick="togglePage('frmTopics');">positions</a>.</b></p>
+          </div>
+
+        </div>    
+
+        <!-- Logos on the right -->
+        <div class="w3-third w3-container w3-center ">
+            <img class="aboutLogos" src="images/logo_ulb_text.jpg" style="width:150px;margin-top: 100px;" />
+        </div>    
+        <div class="w3-third w3-container w3-center ">
+            <img class="aboutLogos" src="images/logo_upc_text.jpg" style="width:200px;" />
+        </div>    
+        <div class="w3-third w3-container w3-center ">
+            <img class="aboutLogos" src="images/logo_aau_text.jpg" style="width:200px;" />
+        </div>    
+        <div class="w3-third w3-container w3-center ">
+            <img class="aboutLogos" src="images/logo_arc_text.jpg" style="width:220px;" />
+        </div>
+
+        <!-- 
+        <div class="w3-third w3-container w3-center ">
+          <p><img src="images/logo_m.png" style="width: 100px;" /></p>
+          <p><img src="images/msca_s.png" style="width: 75px;" /></p>
+          <p>
+            <img src="images/eu_logo_s.png" style="width: 100px;" />
+            <p style="font-size: 12px; color: blue">Funded by the Horizon 2020 Framework Programme of the European Union</p>
+          </p>
+          <p class="w3-padding-large w3-padding-32 w3-center"></p>
+          <p class="w3-border w3-padding-large w3-padding-64 w3-center"></p>
+        </div>
+        -->
+
+      </div>
+
+
+      <!-- Why DEDS -->
+      <div id="frmWhy" class="frmClass w3-row w3-padding-32">
+        <div class="w3-row w3-twothird w3-container">
+          
+          <h1 class="w3-text-teal">Why DEDS</h1>
+      
+          <p>Data drives the world. Market analysts <a href="https://www.mckinsey.com/business-functions/mckinsey-analytics/our-insights/the-age-of-analytics-competing-in-a-data-driven-world">state</a>: "Data is now a critical corporate asset. It comes from the web, billions of phones, sensors, payment systems, cameras, and a huge array of other sources, and its value is tied to its ultimate use. While data itself will become increasingly commoditized, value is likely to accrue to the owners of scarce data, to players that aggregate data in unique ways, and especially to providers of valuable analytics".</p>
+
+          <p>A typical data value creation chain encompasses multiple disciplines and people with different roles, of which Data Science and Data Engineering are two prominent examples. Data Science (DS) is the scientific interdisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from data in various forms, both structured and unstructured. Data scientists focus on extracting meaning and insight from data through analytics. They are supported in their activities by Data Engineering (DE). Data engineers design and build the data ecosystem that is essential to analytics. Data engineers are responsible for the databases, data pipelines, and data services that are prerequisites to data analysis and data science.</p> 
+
+          <p>In setting up these pipelines and functionalities that comprise the ecosystem, data engineers are often faced with challenges posed by extreme characteristics of Big Data, defined by the Oxford English Dictionary as "data of a very large size, typically to the extent that its manipulation and management present significant logistical challenges". Addressing these challenges demand innovative technological solutions for data management, involving new architectures, policies, practices and procedures that properly manage the full data lifecycle needs of an organisation.</p>
+
+          <p>The Big Data Value Strategic Research & Innovation <a href="http://bdva.eu/sites/default/files/BDVA_SRIA_v4_Ed1.1.pdf">Agenda</a> expresses the commitment of the European Commission (EC), industry and academia partners "to build a data-driven economy across Europe, mastering the generation of value from Big Data and creating a significant competitive advantage for European industry, boosting economic growth and jobs." The agenda particularly emphasises "the existence of data assets of homogenous qualities (e.g. geospatial, time series, graphs and imagery), which calls for optimizing the performance of existing core technology (e.g. querying, indexing, feature extraction, predictive analytics and visualization)," as well as "there is a need to create complex and fine-grained predictive models on heterogeneous and massive datasets such as time series or graph data... such models must be applied in real-time on large amounts of streaming data."</p>
+
+          <p>Recent years have witnessed the birth of novel data management tools designed to address several of the Big Data challenges, but the problems and opportunities in the data engineering and management domain to unleash the full potential of data are still greatly unexplored. What is missing is a holistic, end-to-end management of the full lifecycle of data, from their identification and capture till their exploitation by end-users, including data scientists.</p>
+
+          <p> The Data Engineering for Data Science (DEDS) programme aims at carrying out foundational research within the Big Data <a href="https://link.springer.com/chapter/10.1007/978-3-319-21569-3_3">value chain</a> to develop new technologies that improve the data management efficiency, and specifically for Data Science. DEDS will be delivered by a consortium composed of four European beneficiaries with a world-leading position in Data Management, Data Engineering, and Data Science. The consortium will be complemented by a network of partner organisations from industry and the public sector active in a wide range of disciplines, including Energy, Health, Finance, Transport, and Customer Relationship and Support. The consortium shares a vision statement:</p>
+
+          <div class="w3-panel w3-leftbar w3-light-grey">
+          <p><b>The DEDS programme will be a worldwide reference in advancing research and education in data management innovation for solving the critical challenges facing the society now and in the future.</b></p>
+          </div>
+
+          <h1 class="w3-text-teal">Mission</h1>
+
+          <p>DEDS brings together world-leading institutions with a long experience in both research and teaching collaboration and define a concrete and realistic common mission statement (MS) as follows:</p>
+      
+          <ul class="w3-ul">
+            <li><b>MS1</b>: Create and effectively disseminate cross-disciplinary essential knowledge about the generation, collection, exploitation, and value-creation of data for efficient decision-making.</li>
+            <li><b>MS2</b>: Educate ethical professionals and future leaders in data-driven innovation.</li>
+            <li><b>MS3</b>: Integrate, synthesise, and transfer scientific knowledge that enables smart, sustainable, and inclusive growth, by unleashing the potential of data-driven innovation in different disciplines for addressing societal problems, such as health care, effective energy use, and transport.</li>
+            <li><b>MS4</b>: Establishing a European data management toolkit for Data Science by creating novel functionalities and feeding them back into well-established open source data processing engines (e.g., Spark and PostgreSQL) and Data Science platforms (e.g., SWAN and RapidMiner).</li>
+          </ul>
+
+          <h1 class="w3-text-teal">Objectives</h1>
+
+          <p>The programme is designed to provide understanding and competencies (i.e., the combination of knowledge, skills, and attitudes that students develop and apply for successful learning, living and working) in the strategic area of data management and engineering for Data Science. It will prepare the graduates for a research and innovation career both in academia and, equally important, in the ICT industry and public services. In this respect, we acknowledge the relevance of the European Research Agenda <a href="http://ec.europa.eu/research/era/eraprogress_en.htm">Report</a>, and commit ourselves to contribute specially to the objectives of removing barriers to the wider use of knowledge, promote wider and faster circulation of scientific ideas, as well as fully utilising gender diversity and equality. More precisely, the consortium has defined the following quantifiable objectives (O):</p>
+
+          <ul class="w3-ul">
+            <li><b>O1</b>: To produce foundational cross-disciplinary research about the generation, collection, and exploitation of large-scale data for efficient decision-making, publish it in top scientific outlets, and promote the development of novel technologies and tools. Exploitation will be ensured by integrating them in existing open source and commercial Big Data tools to enable the extraction of valuable information in industry and public services.</li>
+            <li><b>O2</b>: To educate and train talented doctoral candidates in large-scale data management and analytics, fostering the knowledge triangle between education, research, and innovation, including both technical and transferable competencies, like ethics awareness and entrepreneurial spirit.</li>
+            <li><b>O3</b>: To establish an integrated pan-European Network of Excellence in large-scale data management that promotes the creation of tools and resources, continuously monitoring their quality and adequacy to the market needs and societal challenges, and attracting excellent local and foreign researchers. It will be composed of the beneficiaries and associated partners, as well as the software toolkit, equipment and datasets.</li>
+          </ul>
+
+          <h1 class="w3-text-teal">Added Value</h1>
+
+          <p>The originality, added value and innovative aspects of the programme can be summarised as follows:</p>
+
+          <ul class="w3-ul">
+            <li>The first integrated and transnational doctoral programme in the domain worldwide.</li>
+            <li>A consortium composed by leading institutions in the domain.</li>
+            <li>Mobility involving at least two European institutions, resulting in a joint degree.</li>
+            <li>An ambitious European-wide cross-disciplinary research agenda integrating all the research projects.</li>
+            <li>Contribution to the creation of novel technologies by developing open source prototypes for all thesis topics.</li>
+            <li>Technology transfer by incorporating results in open source and commercial Big Data tools (e.g., Spark, PostgreSQL, SWAN, and RapidMiner)14 enabling both DEDS beneficiaries, partner organisations, and the public to exploit the results.</li>
+            <li>Knowledge dissemination to both the scientific community and to a larger, non-expert public.</li>
+            <li>An open science policy through open access, open source prototypes, and open research data.</li>
+            <li>An instrumental training programme fostering both technical and transferable competencies.</li>
+            <li>An integrated collaboration with industrial partners, ensuring knowledge transfer and employability.</li>
+            <li>A strong international networking aspect, promoting community building.</li>
+            <li>Continuous monitoring of the candidates, focusing on scientific excellence and career development.</li>
+            <li>Assessment of the programme quality through measurable Key Performance Indicators (KPIs).</li>
+          </ul>
+
+          </div>    
+
+        <div class="w3-third w3-container"></div>
+      </div>
+
+
+      <!-- Programme -->
+      <div id="frmProgramme" class="frmClass w3-row w3-padding-32">
+        <div class="w3-row w3-twothird w3-container">
+
+          <h1 class="w3-text-teal">Programme Overview</h1>
+
+          <p>DEDS is a joint doctoral programme of three-year duration. In case of unforeseen difficulties, up to two additional six-month periods can be granted if (1) it is duly justified, and (2) the Candidate Progress Committee considers the completion of a Doctoral Thesis feasible within the extended period of time.</p>
+
+          <p>Each ESR will be enrolled in the PhD programmes at both Home and Host universities and work on an individual research project with a supervisory team consisting of at least two academic supervisors (one from Home, one from Host), complemented by one secondment supervisor from a partner organisation.           Note that, for those ESRs (co-)supervised by beneficiary ARC, the doctoral degree will be awarded by academic partner UOA.</p>
+
+          <p>The research activity will be carried out in the Home and Host Universities, during alternate successive mobility periods, and also includes at least one secondment in a partner organisation of the consortium. The time spent in the Host University will be no less than 33% of the total duration of the studies.</p>
+
+          <p>Differences among ESRs in background knowledge, original skills, and interests are expected. Thus, instead of preparing a generic training programme, ESRs will have a personalised Doctoral Project Plan (DPP) created right at the beginning of their projects. The DPP builds upon their individual background and future career prospects, allowing ESRs to tailor their own research and training activities with respect to their project objectives and individual needs, and complementing core scientific competencies with innovation-related and transferable ones. The DPP will ensure the appropriate synergy and balance between research and training, following a strict timeline to complete the doctorate in three years. The DPP jointly designed by the ESR and his/her co-supervisors, must include:</p> 
+
+          <ul class="w3-ul">
+            <li> (1) Research-specific, innovation and entrepreneurship, as well as language courses</li>
+            <li> (2) Participation in the summer and winter schools</li>
+            <li> (3) At least three international peer-reviewed publications</li> 
+          </ul>
+          
+          <p>The research-specific courses will be delivered by the doctoral schools at the beneficiaries, and the other courses by both the beneficiaries and the partner organisations. The DPP also describes the activities of the ESR's secondment, which aims at validating the ESR's specific research in practice and exposing the ESR to the professional world.</p>
+
+          <h1 class="w3-text-teal">Training Programme</h1>
+
+          <p>DEDS is a joint doctoral programme in which all ESRs will follow a common process, regardless of the institutions involved. The programme fosters a wide range of technical and transferable competencies (i.e., combinations of knowledge, skills, and attitudes) aiming to improve the career prospects of ESRs and to prepare innovative leaders and entrepreneurs. The doctoral programme comprises the following activities:</p>
+
+          <ul class="w3-ul">
+            <li><b>Research</b>: Doctoral candidates work on a novel research problem guided by two supervisors who will advise and train them to gradually become independent researchers.</li>
+            <li><b>Doctoral courses</b>: Courses will be chosen by each ESR individually in coordination with his/her supervisors from the list of available courses in each university. At least 30 ECTS of courses must be chosen (distributed in a minimum of 20 ECTS in research-specific courses and a minimum of 10 ECTS in the others). The list comprises Research-specific courses, Innovation and entrepreneurship courses, Methodological and communication courses, and Language courses. </li>
+            <li><b>Summer and winter schools</b>: Invited researchers and practitioners meet and challenge the ESRs. These schools, also open to the public, enable the ESRs to get international contacts in both industry and academic sectors as well as feedback on presentations of their research. The schools are network-wide events that involve both beneficiaries and partner organisations.</li>
+            <li><b>Tutoring</b>: ESRs will be involved in teaching and educational activities, such as supervising undergraduated student projects and delivering exercises and laboratory sessions. The time spent by ESRs on teaching activities will be calibrated with national regulations, resulting in a workload equivalent to that of any doctoral in the same university.</li>
+            <li><b>Knowledge dissemination</b>: Mandatory conference participation and publications allowing ESRs to present their findings, thereby familiarising themselves with essential academic practices such as peer-review and public debating.</li>
+            <li><b>External cooperation</b>: ESRs will work with domain experts at partner organisations on intersectoral problems, get experience with interdisciplinary team work, and gain transferable skills such as familiarizing themselves with cutting-edge production systems, which will also strengthen their position to a highly competitive job market.</li>
+          </ul>
+
+          <h1 class="w3-text-teal">The Road to Success</h1>
+
+          <p>A jointly designed doctoral process described in the figure below will ensure a continuous monitoring of the ESRs.</p> 
+
+          <img id="doctoral-process" class="topics" src="images/process.png" alt="DEDS doctoral process">
+
+          <p>Each ESR will be involved in a Joint Doctoral Topic offered by two beneficiaries (i.e., Home and Host) with a secondment in a partner organisation. ESRs will be co-supervised by two experienced researchers using a co-tutelle model, and a third advisor with research experience from the corresponding secondment will provide ESRs an essential knowledge, experience and guidance for their future career. </p>
+
+          <p>To ensure a uniform evaluation, a Candidate Progress Committee (CPC) will be assigned to each ESR. The CPC consists of (1) Supervisor from Home institution; (2) Co-supervisor from Host institution; (3) Committee chair, who is a supervisor from a beneficiary distinct from the Home and Host. A secondment supervisor from a partner organisation will be invited to the CPC to provide a non-academic perspective. The CPC chair is responsible for ensuring that the process, milestones, and intermediate evaluations are met; he/she will also act as referee in case of potential disputes.</p>
+
+          <p>Each ESR will meet at least once every week the supervisor of the institution where he/she is located, and the other supervisor will join remotely every other week. These meetings allow ESRs to present their results, ask questions, etc. Also, periodic monitoring meetings are planned every 2.5 months between the ESR, all members of the Candidate Progress Committee (CPC), and the WP leader. These meetings should include some slides and produce minutes drafted by the ESR and reviewed by the local supervisor stating: (1) what was done since the last meeting, (2) what will be done for the next meeting, (3) what is slowing down or blocking the project, and (4) what was discovered that would be of interest, or needs to be discussed. 
+
+          <p>During the secondments, the ESRs will be supervised by an experienced researcher at the secondment partner organisation. Regular meetings with the academic supervisors will still continue during this period to ensure the coordination of the overall project.</p>
+
+          <p>During the joint training events, ESRs will have the opportunity to meet both supervisors face to face, allowing further synchronisation and discussion of the monitoring reports (see below) produced by the candidates. </p>
+
+          <p>To monitor the ESRs' progress, four milestones are defined, each accompanied by the corresponding document, which will be jointly evaluated. </p>
+
+          <ul class="w3-ul">
+            <li><b>Milestone 1</b>: Two months after the enrolment, the ESR together with his/her co-supervisors will deliver a <i>Doctoral Project Plan (DPP)</i>, which formulates the elements involved in the research process. In addition, the DPP will specify the ESR's personalised doctoral training programme taking into account his/her previous background and future career prospects.</li>
+
+            <li><b>Milestone 2</b>: In the <i>Thesis Proposal Report (TPR)</i>, the DPP is updated by the ESR according to the experiences gained during the first stage of the doctorate. The TPR is much more concrete and elaborated than the DPP and should be delivered no later than one month before the end of the first year.</li>
+
+            <li><b>Milestone 3</b>: In the <i>Research Progress Report (RPR)</i>, the ESR updates the TPR according to the experiences gained during the second stage of the doctorate. The RPR includes a description of the main issues, early research results, and plan for the remaining work. The RPR should be delivered no later than one month before the end of the second year. </li>
+
+            <li><b>Milestone 4</b>: The <i>Doctoral Thesis</i> will be submitted at the end of the third year (M4).</li>
+          </ul>
+
+          <p>The DPP, TPR, and RPR will all be accompanied by a <i>Career Development Plan (CDP)</i> that discusses the ESR's envisioned career opportunities and a roadmap to achieve them. After the submission of the Doctoral Thesis, the CDP is updated again to reflect achieved and new goals.</p>
+
+          <p>At the end of a secondment, a <i>Secondment Report (SR)</i> is prepared, describing not only the work and achieved goals, but also reflections on the experiences made and their influences on the ESR's future.</p>
+
+          <p>The DPP will be presented in a poster session in the first winter school, the TPR and RPR will be defended in front of the CPC and an external evaluator during the summer schools. A common evaluation of these documents was designed and includes the assessment of the potential contribution to innovation. If a report is not satisfactory, the ESR must resubmit within one month a new version that takes the CPC's feedback into account. If this version is not satisfactory, a "get back on track" procedure is activated, whereby the supervisors prepare a detailed action plan for the ESR's performance to become satisfactory after a three-month period. Subsequently, the CPC decides if the progress has been re-established. If the ESR does not accept this procedure or is unable to recover lost ground, he/she will be withdrawn from the programme. This decision does not necessarily entail any consequence with respect to the participation of the Candidate in local Doctorate programmes of the Home and Host universities.</p>
+
+          <p>The Doctoral Thesis will be evaluated with a common form in addition to local forms used by the Home and Host universities. It should contain material for at least 3 international peer-reviewed publications in indexed conferences or journals, of which 2 should be accepted for publication at the time of submission. After a unanimous recommendation by the CPC, it is submitted for evaluation by a Thesis Assessment Board (TAB) composed of members from at least four different institutions, containing: (1) at least one member from each of the Home and Host HEIs, and (2) at least one member external to the consortium, (3) the chair of the CPC (if local rules at the beneficiaries prevent this, e.g., due to a recent co-authorship between the supervisor and a potential TAB member, the local rules will be respected). The TAB will first state whether the thesis is satisfactory or not. If it is, a public, oral defence of the thesis will be held at the Home university in front of the TAB. Furthermore, the ESR will also present her/his work at a public seminar at the Host university. If the TAB considers the thesis is not satisfactory (which will occur rarely based on the partners' experience), it shall state whether the thesis may be resubmitted in a revised version within a deadline of at least three months. As stated in the Doctoral Candidate Agreement, ESRs who did not reach minimum criteria in the new version of the thesis will not be awarded the joint doctorate degree.</p>
+
+          <p>All other activities of the doctoral programme will also be assessed using a commonly agreed evaluation procedure. Secondments will be assessed using a common evaluation designed by the consortium. The ECTS acquired by an ESR in the programme will be recognised by the two institutions of the co-tutelle, independently of where they were acquired. Furthermore, the ESR's monitoring will be based on deliverables collected in a Candidate's Portfolio (CP) that contains, at least: (1) Doctoral Candidate Agreement, (2) DPP, (3) Transcripts of the courses, (4) Minutes of the periodic monitoring meetings, (5) TPR, (6) RPR, (7) Conference participations and other publications, (8) Secondment Reports. The CP will be at the disposal of the ESR, the CPC, and TAB.</p>
+
+          <p>In summary, the quality of the joint supervision results from:</p>
+
+          <ul class="w3-ul">
+            <li> The joint doctoral process, which will maximise the ESRs' potential by a continuous monitoring.</li>
+            <li> The expertise of the supervisors, who will ensure the pertinence of the research work with respect to the state-of-the-art.</li>
+            <li> The beneficiaries, which are all highly recognised institutions and have worked together in European research and educational projects.</li>
+            <li> The network of distinguished partner organisations.</li>
+            <li> The quality assessment mechanisms for the programme.</li> 
+            <li>The demanding DEDS graduation requirements, which go beyond the standard criteria.</li>
+            <li> The competitive selection procedure will lead to high quality research contributions.</li> 
+            <li> The mandatory publications that ensure that the ESRs will be independently evaluated, and which will improve the EHEA visibility and attractiveness.</li>
+          </ul>
+
+          <h1 class="w3-text-teal">Type of Diploma Awarded</h1>
+
+          <p>At the end of the DEDS programme, provided that the ESR meets the academic requirements of the two universities of the co-tutelle allowing the Candidate to enter the doctoral procedure and to defend his/her doctorate, and after a successful defence of the Doctoral Thesis, the ESR will be awarded a <b>Joint Doctoral Degree</b> delivered by the two universities of the co-tutelle. The joint diploma is awarded by the academic authorities empowered to do so, on the basis of the conclusions of the appointed Thesis Assessment Board. The four universities awarding the joint doctoral degree under the co-tutelle model, bestowing the grades of:</p>
+
+          <ul class="w3-ul">
+            <li>Doctorat en Sciences de l’Ingenieur (ULB)</li>
+            <li>Doctor (UPC)</li>
+            <li>Ph.D. in Computer Science (AAU)</li>
+            <li>Ph.D. in Informatics and Telecommunications (UOA)</li>
+          </ul>
+
+          <p>A <b>Joint Europass Diploma Supplement</b> will also be produced. It includes an overall description of the DEDS programme, a detailed description of the education and training programme followed by the Candidate, the information on the universities where the studies were conducted, the education system in the respective countries, and the partner organisations where the secondments were done.</p>
+
+          <p>In addition, the consortium will issue a <b>Joint DEDS Certificate</b> signed by all beneficiaries and a <b>Europass Mobility Certificate</b> for the secondments carried out.</p>
+
+        </div>
+
+        <div class="w3-third w3-container"></div>
+
+      </div>
+
+
+      <!-- Topics -->
+      <div id="frmTopics" class="frmClass w3-row w3-padding-32">
+        <div class="w3-row w3-twothird w3-container">
+
+          <h1 class="w3-text-teal">Research Topics</h1>
+
+          <p>DEDS groups the planned contributions needed to unlock value from raw data into the following four functional modules, each addressing a different subset of research challenges:</p>
+
+          <ul class="w3-ul">
+            <li>The <b>Governance</b> module considers privacy-aware mechanisms to manage and trace all data during the Data Science lifecycle, facilitating its automation.</li>
+            <li>The <b>Storage and Processing</b> module investigates scalable mechanisms to efficiently store and process different kinds of data (e.g., temporal, geographical) both at rest (e.g., operational, historical) as well as in motion (e.g., real-time) benefiting from specific hardware accelerators.</li>
+            <li>The <b>Preparation</b> module implements tools to effectively preprocess the data for analysis.</li>
+            <li>The <b>Analysis</b> module extends traditional querying by devising data management mechanisms specifically tailored to analytical tasks.</li>
+          </ul>
+
+          <p>The four modules collectively cover essential data engineering functionalities required along the Data Science lifecycle. Each module forms a work package (WP) and is composed of multiple Early Stage Researcher (ESR)) projects as shown in the following figure.</p>
+
+          <img id="topic-figure" class="topics" src="images/topics.png" alt="Research topics" >
+
+
+          <h1 class="w3-text-teal">Research Positions</h1>
+
+          <p id="topic-list">The following ESR positions are available, for details please click at the selected topic:</p>
+
+          <!-- Expand/Collapse button -->
+          <div id="btn-topic" style="color: teal; text-decoration: underline" >Expand all topics</div>
+
+          <!-- List of topics -->
+          <div id="topics-acc1" class="accordion">
+
+              <h4 class="w3-text-teal">Governance</h4>
+
+              <a class="topic-hdr"></i>ESR 1.1: Semantic-aware heterogeneity management</a>
+              <div id="esr_1_1" class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: The variety of data models and technologies among different systems requires that metadata are flexibly represented and governed. While current approaches introduce vocabularies to represent basic metadata artifacts (e.g., data schema, user queries), most of the processing still relies on the user explicitly querying the original artifacts and not the vocabulary. This project will use semantic graphs to develop models, techniques, and methods that automatically select and combine basic metadata artifacts into more complex ones, supporting advanced user assistance data governance tasks such as integration of new instances, traceability or privacy-aware processing, considering semantics.</p>
+                <p><b>Expected Results</b>: (1) A framework to store basic metadata and support the modeling of analysis-ready complex artifacts. (2) A method to automatically manage mappings of different kinds of sources and govern the processing both at the schema and data level. (3) A prototype showing the feasibility of this approach. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> UPC</p>
+                <p><b>Host Institute:</b> ULB</p>
+                <p><b>Secondment:</b> DGT, Summer 2022, 3 months, within the SIITC project for tourism information, provide a complex scenario with tens of heterogeneous touristic sources with real data and processing needs.</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr">ESR 1.2: Traceability in big data processing</a>
+              <div id="esr_1_2" class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: It is common for analysts to work in collaborative environments relying on partial results produced by others, having only a limited view of the whole data flow. Thus, it is needed to systematically keep track of all transformations of data from the source to the result of the analysis, and evaluate how the original characteristics of the data are affected, to guarantee traceability and improve trustability. In this project, we will cope with problems ranging from the amount of annotations produced (bigger than the data themselves), to the impact of data transformations in the quality metrics, going through the process distribution. We will first collect metadata at different granularities without overloading the processing engine, then link them properly, and estimate the effect of transformations.</p>
+                <p><b>Expected Results</b>: (1) A mathematical model that allows to propagate trust as well as quality metrics through the data transformations. (2) A distributed protocol to keep track of data transformations at different granularities. (3) A prototype showing the usability and impact of trust and quality annotations. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> UPC</p>
+                <p><b>Host Institute:</b> AAU</p>
+                <p><b>Secondment:</b> WHO, Summer 2022, 3 months, within the WISCENTD global health information system for Neglected Tropical Diseases, provides a complex scenario with real data and data processing needs.</p>
+              </div>
+              <p></p>
+              
+              <a class="topic-hdr">ESR 1.3: Privacy-aware data integration</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Basically all applications in Data Science need to combine/integrate data originating from multiple heterogeneous datasets (XML, Excel, RDF, etc.). This challenging task becomes even more challenging if we consider that some parts of the data might have to be protected to ensure privacy. This is particularly true for applications in health care, where some data requires protection while still allowing for efficient access and analysis (e.g., patient data or results of certain studies). This project will focus on the integration of private personal data from multiple sources, by carefully ensuring the level of exposition of every instance.</p>
+                <p><b>Expected Results</b>: (1) A framework for analysing heterogeneous datasets. (2) A method to protect privacy while enabling integrated access. (3) A prototype showing the feasibility of this approach. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> AAU</p>
+                <p><b>Host Institute:</b> ARC</p>
+                <p><b>Secondment:</b> AUH, Summer 2022, 3 months, within the Department of Haematology, provides a complex scenario with real data and data processing needs in the context of cancer research and personalized medicine.</p>
+              </div>
+              <p></p>
+
+              <h4 class="w3-text-teal">Storage and Processing</h4>
+
+              <a class="topic-hdr">ESR 2.1: Transparent in-situ data processing</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Bringing computation closer to data is a must when dealing with large datasets in highly distributed systems with very specialised hardware components. Some relevant examples are supporting in-situ data transformations (e.g., decrypt on read) and tier crossings (e.g., select the form of compression based on physical medium to be moved to). The goal of this project is to improve the performance of the data processing engine, such as Spark, by leveraging hardware specificities, without affecting the interface to applications. The approach consists in improving scalability by decoupling the engine primitives from the underlying data store platform, in such a way that tasks can be delegated to avoid data transfers through the different levels of the stack, and benefit from specific hardware.</p>
+                <p><b>Expected Results</b>: (1) A framework to allow data operators to ship code to be executed in-place at the low-level store. (2) A method to communicate available in-place computation capabilities. (3) Connectors to the low-level store for a Big Data processing engine. (4) Evaluation of the connectors.</p>
+                <p><b>Home Institute:</b> UPC</p>
+                <p><b>Host Institute:</b> ARC</p>
+                <p><b>Secondment:</b> BSC, Summer 2022, 3 months, within the project ELASTIC providing both hardware and a complex scenario in a distributed high performance computing system with real traffic data and data processing needs.</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr">ESR 2.2: Distribution and replication for feature selection</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: The curse of dimensionality is more and more relevant as the number of features to be tackled keeps on increasing in many areas, such as bioinformatics, predictive maintenance and IoT. The solution is to perform a careful and efficient feature selection before analysing the dataset. Thus, the purpose of this project is to propose the appropriate data distribution and replication policies, taking into account their specific semantics rather than using a generic approach independent of the application, to optimise filter-based feature selection methods, such as mRMR, and their generalisation to other kinds of algorithms and their associated data structures.</p>
+                <p><b>Expected Results</b>: (1) A framework to distribute and replicate the data. (2) A method to decide the best distribution and allocation configuration. (3) A prototype showing the benefits in different analytical algorithms. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> UPC</p>
+                <p><b>Host Institute:</b> ULB</p>
+                <p><b>Secondment:</b> ORA, Summer 2022, 3 months, within the MACHU-PICCHU project that targets causal feature selection and dimensionality reduction in telecom churn detection, providing a realistic scenario.</p>
+              </div>
+              <p></p>
+              
+              <a class="topic-hdr">ESR 2.3: Model-based storage for time series</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Industrial sensors, like those in wind turbines, generate large amounts of never ending time series, but only small parts of them (e.g., averages over 15 minute windows) can be handled and stored for analysis. Provided that many TBs or even PBs must be handled, it is vital to develop new methods for incremental storage and fast retrieval, that avoid accessing raw data to produce results. In this project, we focus on how to store such time series data by means of models and investigate how these models can be incrementally maintained and used to access both past data as well as predict future data.</p>
+                <p><b>Expected Results</b>: (1) A distributed framework for management of large amounts of sensor data supporting edge processing. (2) Methods for using models over both historical and predicted data. (3) A prototype showing the benefits in different analytical algorithms. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> AAU</p>
+                <p><b>Host Institute:</b> ULB</p>
+                <p><b>Secondment:</b> SG, Summer 2022, 3 months, provides a complex scenario with large amounts of time series from sensors in wind turbines and data processing needs.</p>
+              </div>
+              <p></p>
+              
+              <a class="topic-hdr">ESR 2.4: Analytic operators for trajectories</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Similarity joins, i.e., the matching of similar pairs of objects, is a fundamental operation in data management. In the spatial setting, the problem can be stated as follows: Given the sets P and Q of trajectories and a similarity threshold &theta;, return all pairs of trajectories with a similarity that exceeds &theta;. In the maritime domain, identifying similarities between trajectories of vessels is crucial for classifying vessel activities (e.g., fishing). In particular, (near) real-time similarity search is necessary to successfully identify events related to navigational safety (e.g., piracy). Real-time similarity search is a computationally challenging problem,  however. As such, the objective in this project is to develop techniques that allow efficient (near) real-time trajectory similarity search.</p>
+                <p><b>Expected Results</b>: (1) A set of similarity measurement operators. (2) Efficient index structures to support the proposed operators. (3) A prototype showing the feasibility of the approach, embedded in the MobilityDB system which is based on PostgreSQL. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> ULB</p>
+                <p><b>Host Institute:</b> AAU</p>
+                <p><b>Secondment:</b> MT, Summer 2022, 3 months, within the Big Data Ocean and INFORE projects that provide maritime vessel trajectory data.</p>
+              </div>
+              <p></p>
+              
+              <a class="topic-hdr">ESR 2.5: End-to-end optimisation for data science in the wild</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Contemporary analytical pipelines interconnect a myriad of scripts, programs and tools, often spanning a multitude of programming languages (e.g., R, Python) and associated libraries (e.g., Spark, Tensor flow). While this re-use of existing frameworks reduces development time, it leads to sub-optimal performance due to the lack of end-to-end optimisations such as merge of loops or removal of materialisation points. The objective of this project is to propose techniques that allow such optimisation for analytic pipelines expressed in multiple languages and spanning multiple existing libraries, by using a common intermediate representation in which known DBMS-style optimisations can be expressed.</p>
+                <p><b>Expected Results</b>: (1) A canonical representation of analytical pipelines. (2) System design for end-to-end optimisation tool. (3) Prototype implementation. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> ULB</p>
+                <p><b>Host Institute:</b> UPC</p>
+                <p><b>Secondment:</b> CERN, Summer 2022, 3 months, within in-production Data Science pipelines concerning particle accelerator sensors, provides a complex scenario with real data and data processing needs.</p>
+              </div>
+              <p></p>
+              
+              <a class="topic-hdr">ESR 2.6: Physical optimisation for large scale, DS workloads</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Modern Data Science processing workloads typically involve computations of extreme-scale analytics that can be encoded in various forms (e.g., queries, workflows, programs) and executed on more than one platform. Parts of the processing could be pushed to the edge level (e.g., input sensors), while other more computationally intensive parts (e.g., stock correlation in finance, gene simulations in life sciences) could be executed on one or more, potentially distributed, Big Data platforms or clusters (e.g., GPUs) of a supercomputer or in the cloud. The decision on what is the right platform and timing to execute a Data Science workload is based on a multitude of criteria and optimization objectives, including hardware and processing capabilities, scheduled and running workloads, available resources and pricing, and so on. In this project, we develop tools and techniques for optimizing (e.g., in terms of runtime, throughput, latency, scheduling, system resources, monetary resources) the execution of Data Science workloads across different computing platforms.</p>
+                <p><b>Expected Results</b>: (1) New optimisation and workload management techniques for large scale Data Science workloads. (2) Multi-platforms cost model analysis. (3) Prototype of all new methods developed. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> ARC</p>
+                <p><b>Host Institute:</b> UPC</p>
+                <p><b>Secondment:</b> EUC, Summer 2022, 3 months, within the project DIAMOND in the domain of transport provides a complex scenario with real data and data processing needs.</p>
+              </div>
+              <p></p>
+
+              <h4 class="w3-text-teal">Preparation</h4>
+
+              <a class="topic-hdr">ESR 3.1: Spatio-temporal data integration & analysis</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Many companies collect very large quantities of spatio-temporal data, e.g., transport companies collect telemetric data that are currently used for scheduling, billing, and other administrative tasks. Efficiently managing, integrating, and analysing such spatio-temporal data together with other types of data is a very challenging task. Based on multiple, large datasets, the project annotates a digital map with novel information to be able to accurately quantify the driving, e.g., in terms of fuel consumption that is used for both analytic and predictive analysis. This project will therefore develop scalable processing techniques for integrating heterogeneous data with spatio-temporal datasets.</p>
+                <p><b>Expected Results</b>: (1) A framework for integrating heterogenous datasets. (2) Methods for analyzing spatio-temporal data. (3) Efficient software prototype. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> AAU</p>
+                <p><b>Host Institute:</b> ULB</p>
+                <p><b>Secondment:</b> FDK, Summer 2022, 3 months, a realistic scenario with \green driving" analytical requirements as well as large telemetric and spatio-temporal datasets, such as map, GPS, fuel, weather, congestion, etc.</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr">ESR 3.2: Synopses-driven data integration & federated learning</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Data preparation is among the most time-demanding parts of analytics. The aim of this project is to investigate techniques, including federated learning, to scale data preparation, enabling low-latency responses and automated proposals for data integration actions, without compromising data security and data privacy. In one embodiment, the data will be pre-processed for constructing compact synopses (i.e., summaries), which will enable the user to quickly navigate through different actions and interactively observe the effect on the data. The project will thus get the set of synopses that are best suited for the problem at hand (e.g., the best instance sample), build these synopses, use them to visualize the data and their relationships, and to propose actions.</p>
+                <p><b>Expected Results</b>: (1) A framework for interactive data integration relying on synopses, including methods for automatic selection, construction, and tuning of the synopses, as well as recommendation generation for integration actions. (2) Methods to address critical issues such data privacy and data security. (3) Prototype of all new methods developed. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> ARC</p>
+                <p><b>Host Institute:</b> UPC</p>
+                <p><b>Secondment:</b> SPR, Summer 2022, 3 months, with the company's VectorBull product on concrete and real world data integration and federated learning problems.</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr">ESR 3.3: Unified information extraction for data preparation</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Information extraction, the activity of extracting structured information from unstructured text, is a core data preparation step. Systems for information extraction fall into two main categories: machine-learning-based (ML-based), and rule-based. In the former, models for extraction tasks are automatically obtained by ML methods, which however requires large amounts of training data. In the latter, extraction rules are manually written by human experts, which obviates training data and has the benefit of the rules being explainable, but is labor intensive. Despite advances in ML, rule-based systems are still widely used in practice. The objective in this project is to design and implement an information extraction system that combines the benefits of both categories.</p>
+                <p><b>Expected Results</b>: (1) Design of a declarative language for mixed (rule and ML) information extraction. (2) Study of said language in terms of expressiveness and complexity. (3) Prototype implementation. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> ULB</p>
+                <p><b>Host Institute:</b> AAU</p>
+                <p><b>Secondment:</b> EUN, Summer 2022, 3 months within the JERICHO project, which focuses on Natural Language Processing and will expose the ESR to real data and information extraction needs.</p>
+              </div>
+              <p></p>
+
+              <h4 class="w3-text-teal">Analysis</h4>
+
+              <a class="topic-hdr">ESR 4.1: Interactive exploration & analytics on complex big data</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: The large scale and unstructured nature of complex Big Data makes interactive data exploration and analytics a non-trivial, expensive task for expert and non-expert data scientists. Traditional exploration and analysis methods often cannot cope with the generation pace and versatility of modern heterogeneous data sources. Supporting interactive data exploration and analytics, without sacrificing performance and overall user experience, requires rethinking and co-designing of the data management and analysis layers. In this project, we revisit the interface between data management and data exploration and analysis focusing on performance and expressivity. We identify new primitive operations for exploration and analytics, form workflows comprising primitive operations, and design effective solutions for optimizing such workflows. We develop techniques for enabling an advanced, user-friendly experience through enhanced exploration in natural language and by providing recommendations for spot on data analysis based on the characteristics of the data and the user requirements.</p>
+                <p><b>Expected Results</b>: (1) New exploration and analysis techniques for complex Big Data, including exploration in natural language and recommendations for spot on analysis. (2) New primitives and operators underlying these techniques, designed for integration with data management layer. (3) Prototype of all new methods developed. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> ARC</p>
+                <p><b>Host Institute:</b> AAU</p>
+                <p><b>Secondment:</b> RM, Summer 2022, 3 months, work in RapidMiner Studio on common use-case scenarios from real-world applications.</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr">ESR 4.2: Scalable model selection in stream settings</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Accurate machine learning requires the execution of a model selection phase to perform a number of design choices (e.g., learner), and to calibrate a number of parameters and hyperparameters (e.g., number of layers in a neural network). While model selection is conventionally performed offline and in main memory, the characteristics of contemporary Big Data scenarios require novel methodologies for performing accurate model selection in streaming and distributed settings. So far, the continuous incremental arrival of data has limited the range of considered model selection strategies to simple tuning and drift detection. The ambition in this thesis is to provide an extended library of resource-aware model selection techniques that manage the trade-off between reaction time and accuracy.</p>
+                <p><b>Expected Results</b>: (1) Review and experimental comparison of existing online strategies for model assessment and selection. (2) Design and implementation of novel methods to model selection scale up. (3) Implementation of a prototype. (4) Evaluation of the prediction accuracy and scalability.</p>
+                <p><b>Home Institute:</b> ULB</p>
+                <p><b>Host Institute:</b> ARC</p>
+                <p><b>Secondment:</b> WOL, Summer 2022, 3 months, within the DEFEAT FRAUD project that targets enhanced fraud detection accuracy and online fraud prevention in massively streaming payment systems.</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr">ESR 4.3: A platform for prescriptive analytics</a>
+              <div class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Objectives</b>: Prescriptive analytics does not only predict the future but also suggests (prescribes) the best course of action to take. It entails information collection, extraction, consolidation, visualisation, forecast, optimisation, and what-if analysis. Thus, as a range of non-integrated and specialized tools have to be glued together in an ad-hoc fashion, building prescriptive analytics solutions is labor-intensive, error-prone, and inefficient. This project will build a generic platform for prescriptive analytics, which tightly integrates scalable data storage with declarative specification of queries, constraints, objectives, requirements, and mathematical optimisations in a unified framework.</p>
+                <p><b>Expected Results</b>: (1) Algorithms for prescriptive analytics including information collection, extraction, consolidation, visualisation, forecast, optimisation, and what-if analysis. (2) Advanced algorithms for scalable prescriptive analytics. (3) Prototype of all new methods developed in a unified platform. (4) Evaluation of the prototype.</p>
+                <p><b>Home Institute:</b> AAU</p>
+                <p><b>Host Institute:</b> ARC</p>
+                <p><b>Secondment:</b> SG, Summer 2022, 3 months, provides a complex scenario with real data from wind turbines and needs for prescriptive analytics.</p>
+              </div>
+              <p></p>
+
+          </div>
+
+
+          <h1 class="w3-text-teal">Contract and Salary</h1>
+
+          <p>The ESR will receive a single, three-year employment contract issued by his/her Home Institution. The employment contract will provide by default social security coverage, holiday rights, parental leave rights, pension provision, healthcare insurance, and accident coverage at work. The contract guarantees that the ESR becomes a full member of the institution with the same rights as regular staff with the same position. This concerns, among others, working conditions, professional environment, access to the institutional resources, and participation (also by election) to various decision-making bodies.</p> 
+
+          <p>During the whole period of enrolment in the DEDS programme, the ESR must not receive any scholarship or subvention by the European Commission within the framework of other Community programmes.</p>
+
+          <h1 class="w3-text-teal">Mobility and Family Allowances</h1>
+
+          <p>The ESR will receive a Mobility Allowance as a contribution to his/her mobility related expenses and a Family Allowance should he/she have family, regardless of whether the family will move with the Candidate or not. In this context, family is defined as persons linked to the Candidate by (i) marriage, or (ii) a relationship with equivalent status to a marriage recognised by the national or relevant regional legislation of the country where this relationship was formalised; or (iii) dependent children who are actually being maintained by the Candidate. The family status of a Candidate will be determined at the recruitment date and will not evolve during his/her participation in the DEDS programme. For ESRs employed at AAU, the Mobility and Family Allowances will be paid as part of the basic salary; not as a supplement.</p>
+
+          <div class="w3-panel w3-leftbar w3-light-grey w3-padding-16">
+            <p>More information regarding the terms and conditions of the programme can be found in the <a href="docs/msca-itn-fellows-note_en_v2.pdf"><b>Information note for Marie Skłodowska-Curie Fellows in ITN"</b></a>.</p>
+          </div>
+
+        </div>    
+
+        <div class="w3-third w3-container"></div>
+
+      </div>
+
+      
+      <!-- Partners -->
+      <div id="frmPartners" class="frmClass w3-row w3-padding-32">
+
+        <div class="w3-row w3-twothird w3-container">
+
+          <h1 class="w3-text-teal">Beneficiaries</h1>
+
+          <p>Four top-class European institutions co-organize the DEDS programme:</p>
+          <!-- 
+          <ul class="w3-ul">
+            <li><b>Université Libre de Bruxelles (ULB)</b>, ΒΕ - Coordinator, academic supervision, original research</li>
+            <li><b>Universidad Politècnica de Catalunya (UPC)</b>, ES - Academic supervision, original research</li>
+            <li><b>Aalborg Universitet (AAU), DK</b> - Academic supervision, original research</li>
+            <li><b>Athena Research Centre (ARC)</b>, EL - Academic supervision, original research</li>
+          </ul> 
+          -->
+
+          <!-- List of beneficiaries -->
+          <div id="team1" class="accordion">
+
+              <a class="topic-hdr"><b>Université Libre de Bruxelles (ULB)</b>, ΒΕ - Coordinator, academic supervision, original research</a>
+              <div id="ulb" class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p style="float:left;"><b>University.</b> 
+                <img src="images/logo_ulb.jpg" style="float:right;width:100px;margin-left: 5px;" />
+                ULB, with its 24,000 students and 5,000 staff, is one of the leading French-speaking universities in the world. It is a multicultural university with 33% of its students and 20% of its staff coming from abroad. The ULB has 13 faculties, schools and specialised institutes that cover all the disciplines, closely combining academic education and research. It offers almost 40 undergraduate programmes and 235 graduate programmes. It also partners 20 doctoral schools, with almost 1,600 doctorates in progress.</p>
+                <p>With its four Nobel Prizes (three Scientific Nobel Prizes, one Peace Nobel Prize), one Fields Medal, one Abel Prize, three Wolf Prizes, two Marie Curie Awards, the ULB is also a major research university of worldwide standing in the academic community. Over the past few years, it has obtained 7 Starting Grants and 2 Advanced Grants from the European Research Council (ERC). Its Institute for European Studies is recognised as a "Jean Monnet European research centre" for its work on European integration. ULB currently participates in 120 international and European joint research projects. It participated in 76 EU FP6 projects and in 73 EU FP7 projects to date.</p>
+                <p>Collaboration with universities from around the world has been stepped up in both education and research. The ULB has 360 Erasmus partnerships, and 250 agreements with European and international universities. It coordinates one Erasmus Mundus Joint Doctorate and one Erasmus Mundus Joint Master and is partner in four Erasmus Mundus Action 2 programmes (India, China, Brazil, Japan-Corea). ULB launched UNICA, a network of 45 leading European universities that encompasses over a million students. It is also a founding member of the International Forum of Public Universities (IFPU). ULB has extensive experience in theses co-tutelle. For example, 13% of the Doctorate diplomas obtained in 2009–2010 were realised in co-tutelle. Further, in 2010–2011, 176 ongoing doctorate theses are realised in co-tutelle.</p>
+                <p style="float:right;"><b>Departments.</b> 
+                Resarch groups from two different departments participate in this proposal: Laboratory of Web and Information Technologies (WIT, prof. Zimányi in the CoDE Department) and the Machine Learning Group (MLG, prof. Bontempi, in the Computer Science Department).</p>
+                <img src="images/ulb_batimentA.jpg" style="float:left;width:100px;margin-right: 5px;" />                
+                <p>The Department of Computer & Decision Engineering (CoDE) is composed of three laboratories of the Engineering Faculty: the Artificial and Swarm Intelligence Laboratory (IRIDIA), the Laboratory for Web and Information Technologies (WIT), and the Operational Research Laboratory (SMG). The aim of the department is to join the expertise of the three laboratories for realising innovative research, in particular in the area of business intelligence and data science. The department gathers 11 full-time professors, 50 researchers and PhD students, and 4 administrative/technical support staff. The department participated in numerous research projects, in particular, two ERC Grants, two FET projects (one as coordinator), one ARIADNA project of the European Space Agency and one Marie Curie Initial Training Network. </p>
+                <p>The Computer Science Department (DI) is composed of 5 laboratories of the Sciences Faculty: Algorithmic, Graphs and mathematical optimisation, Machine learning, Formal methods and verification, Quality and security of information systems. The department gathers 18 full-time professors, more than 60 researchers and PhD students, and 4 administrative/technical support staff. The department participated in numerous research projects, in particular, 1 ERC Grant, a Marie Curie Initial Training Network. and several projects funded by FNRS, Walloon Region and Brussels Region.</p>
+                <p><b>Groups.</b> 
+                <img src="images/ulb_library.jpg" style="float:right;width:150px;margin-left: 5px;" />
+                The Laboratory of Web and Information Technologies (WIT) has for years done cutting-edge research and development in the field of databases and business intelligence. WIT currently consists of 15 researchers (2 full-time professors, 3 postdocs, 10 PhD students ) and two administrative/technical support staff. The laboratory’s research focuses on data and information management with particular attention to: data warehousing and business intelligence, spatio-temporal and geographic data management, information extraction, and continuous query processing. WIT coorganises the "European Business Intelligence Summer School" (eBISS) since 2011125. Prof. Zimányi co-organised the Dagstuhl Seminar "Data Warehousing: Status Quo and Next Challenges", that took place in September 2011. Prof. Zimányi is Editor-in-Chief of the Journal on Data Semantics (JoDS) published by Springer.</p>
+                <p>MLG currently consists of 18 researchers (4 full-time professors, 2 postdocs, 12 PhD students). The group is dedicated to theoretical and applied research in machine learning, covering research on scalable machine learning, computational modelling and statistics and their applications to problems of data mining, bioinformatics, simulation and time series prediction. Prof. Bontempi has been invited keynote speaker at numerous conferences and workshops, including “French German Summer School on Transfer Learning”, “Business Analytics in Finance and Industry”129, and the "Italy 2030" discussion at the European Parliament.</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr"><b>Universidad Politècnica de Catalunya (UPC)</b>, ES - Academic supervision, original research</a>
+              <div id="upc" class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                 <p><b>University.</b>
+                  <img src="images/logo_upc.png" style="float:right;width:100px;margin-left: 5px;" />
+                 UPC is one of the distinguished universities in Spain and Europe. It is Campus of Excellence International (CEI)130 since the first round of the Ministry of Education in 2009 when it won recognition for the project Barcelona Knowledge Campus (BKC)131, presented in conjunction with the University of Barcelona. Over 35,000 students at UPC receive high quality education based on rigour, critical thinking, interdisciplinarity and an international outlook in the fields of engineering, architecture, and science. UPC’s academic itineraries and curricula have been designed to fulfil the needs of traditional and emerging production sectors. They are implemented in 69 graduate and undergraduate programmes, and 62 masters (22 taught entirely in English), that are structured in 23 schools, and have already been adapted to the European Higher Education Area. Besides this, there are 46 doctoral programmes, involving 3,000 students (28 cotutelle agreements have been signed only in 2011). With 13 Erasmus Mundus Masters, 5 Erasmus Mundus Doctorates and outstanding number of 95 international double-degree agreements with 44 universities worldwide, the UPC is able attract over 2,200 international students. In this context internationalisation is UPC’s main priority. UPC connects with other HEI and industry in seven international excellence networks (CESAER, CINDA, CLUSTER, EUA, TIME, UNITECH, and MAGALHAES).</p>
+                 <p>The UPC is a leading institution in innovation, research and technical development, worldwide recognised for its results in basic and applied research. 3,458 of its students are in educational cooperation agreements with companies. UPC's research portfolio covers the fields of Aerospace Engineering; Applied Sciences; Architecture, Urbanism and Building Construction; Audiovisual Communication and Media; Biosystems Engineering; Business Management and Organisation; Civil Engineering; Health Sciences and Technology; Industrial Engineering; Informatics Engineering; Naval, Maritime and Nautical Engineering; and Telecommunications Engineering. With its 2,780 professors and researchers, it develops an intense activity aimed at transferring technology and knowledge to private companies and to society. In 2011, the UPC collaborated with 2,680 companies, had 14 spin-offs, and 78 patent applications (33 of these internationally). In the same time, UPC’s 1,694 administration and services employees administered a total income of over 64 million Euro from R&D projects (54 European and 283 national) and technology transfer (506 agreements).</p>
+                 <p><b>Department.</b> 
+                  <img src="images/upc1.jpg" style="float:left;width:150px;margin-right: 5px;" />                  
+                 The Engineering Department of Services and Information Systems is a new department created in 2009 that currently comprises about 20 full-time professors and 21 researchers and PhD students, who work collaboratively with a range of groups in Europe and Latin America, and are supported by the administration and IT staff of the LSIESSI Management Unit. It is structured in three research groups: Integrated Software, Service, Information and Data Engineering (inSSIDE), Information Modelling and Processing (MPI), which have been awarded Catalan government funding for the period 2018–2020 (under 2017SGR-1694, and 2017SGR-1749, respectively), and Technology and Humanism (STH) group created from the UNESCO Sustainability Chair and, most importantly, the interdepartmental doctoral programme of the same name, which is now coordinated by the UPC’s new University Research Institute for Sustainability Science and Technology. Their work is underpinned by a commitment to producing high-quality, tangible results through theoretical and technical research with clear practical applications. This is shown in the current four national research projects and one KA3 European project, as well as a Chair funded by Everis. </p>
+                 <p><b>Group.</b> 
+                  <img src="images/upc2.jpg" style="float:right;width:150px;margin-left: 5px;" />
+                 The main goal of the Integrated Software, Service, Information and Data Engineering (inSSIDE) research group is to explore aspects of software engineering and data management. Its researchers are particularly active in the fields of databases, data warehousing, conceptual modelling and ontologies, the semi-automatic generation of transformations between data schemas (relational and/or multidimensional), requierements engineering, software quality, software architecture, service-oriented computing, open source software, and empirical research. inSSIDE has a strong relationship with the “Conference on Advanced Information Systems Engineering (CAiSE)”, the head of the group being part of its programme board, bringing its organisation to Barcelona in 1997, and publishing papers regularly. The group currently consists of 10 full time professors, 4 postdocs, and 8 PhD students. Prof. Abelló is the local coordinator of the Erasmus Mundus PhD programme “Information Technologies for Business Intelligence - Doctoral College” (IT4BI-DC)133. He has been involved in many Programme Committees (being chair of DOLAP’08, and co-chair of MEDI2012 and DOLAP’18, and is member of the steering committee of “International Workshop of Data Warehousing and OLAP” (DOLAP) and “European Business Intelligence Summer School” (eBISS). Being member of the “Spanish Database Research Network”, he participated in 8 competitive research projects at the national level since 1998, currenly coordinating “Generation and Evolution of Smart APIs” (GENESIS).
+              </div>
+              <p></p>
+
+              <a class="topic-hdr"><b>Aalborg Universitet (AAU)</b>, DK - Academic supervision, original research</a>
+              <div id="aau" class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>University.</b> 
+                <img src="images/logo_aau.png" style="float:right;width:100px;margin-left: 5px;" />                  
+                Aalborg Universitet stands out among older and more traditional Danish universities with its orientation on interdisciplinary problem-based work. Since its establishment in 1974, AAU has built a worldwide reputation for its problem-based learning model of problembased project work – also known as The Aalborg Model – and by extensive collaboration with the surrounding society. Within the fields of technical and natural sciences, social sciences, humanities, and health sciences, AAU currently educates more than 20,000 students, ranging from students at preparatory courses through doctoral-level candidates. These programmes aim to fulfil the requirements of both the private and the public sectors of the labour market. While AAU also provides elite programmes within a few selected areas (including data-intensive systems), it is taking steps to expand its reputation as an internationally recognised leading university within problem based learning. AAU’s programmes already attract approximately 15% international students, coming from different countries around the world. The international perspective is also reflected through the university’s active employment of international academic staff, the establishment of student exchange programmes and international research collaboration. AAU is characterised by combining a keen engagement in local, regional, and national issues with an active commitment to international collaboration. In 2015, AAU acquired 672 new external grants and administered external projects with a total turnover exceeding 85 million Euro. It has expanded its strong research areas ranging from basic research and applied research within all the academic fields represented at the university to world class research areas within selected fields. AAU has a strong focus on Information and Communications Technology (ICT), centred at the Technical Faculty of IT and Design. The strong focus makes AAU Denmark’s leading ICT university, attracting close to 39% of all new ICT students in Denmark. By further expanding its multidisciplinary research activities, increasing its collaboration across different research and knowledge areas, and strengthening its position as a network university, AAU has become one of the leading innovative universities in Europe. AAU has participated in 130 FP7 projects and currently participates in 57 H2020 projects.</p>
+                <p><b>Department.</b> 
+                <img src="images/aau_campus.jpg" style="float:left;width:150px;margin-right: 5px;" />                  
+                The history of Computer Science at AAU goes back to 1976. In 1999 Computer Science became an independent department. The Department of Computer Science offers, apart from four programmes for Danishspeaking students, three international master’s programmes including one on Data Engineering. It also offers two elite education programmes within computer science: Data-Intensive Systems (headed by Prof. Pedersen) and Embedded Software Systems. The excellence of these programmes is recognised in the international benchmarking of Danish computer science in 2006: “AAU has developed programmes with a strong professional orientation [... that ...] make an important contribution to Danish computer science.” Currently, the department has 41 professors and 68 academic staff members, including more than 45 doctoral candidates, and educates around 1,000 students with 4% international. Along the line of the university, the department performs world-class international research within four main areas: database and programming technologies, distributed and embedded systems, machine intelligence, and information systems. The department has 7 ongoing or recent FP7 and H2020 projects.</p>
+                <p><b>Group.</b> 
+                <img src="images/aau_lake.jpg" style="float:right;width:150px;margin-left: 5px;" />
+                The Database, Programming and Web Technologies unit (DPW) at AAU is one of the three research units of the Department of Computer Science. In 2006, the group expanded its activities by establishing the Center for Data- Intensive Systems (Daisy) as a powerful platform for research and industry collaboration. Currently, DPW/Daisy, co-headed by Prof. Pedersen, consists of 16 professors, four post-doc researchers and more that 20 doctoral candidates. The overall topics of the group include Web data, graph data, RDF, business intelligence, spatio-temporal data, data streams, scalable and distributed systems, data mining, location-based mobile services, and programming languages and tools. The group has strong collaborations with national and international industry partners and universities (including ULB and UPC in the IT4BI-DC Erasmus Mundus programme). In a research evaluation, covering the period 2006–2010, the independent international evaluation committee concluded that DPT/Daisy is “[...] among the top-5 database groups in Europe, on level with institutions like ETH, and with an analogous significant reputation at world level.” For the period 2011–2015, the international evaluation committee concluded that “the unit is of excellent quality. The unit performs at world-class level.”</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr"><b>Athena Research Centre (ARC)</b>, EL - Academic supervision, original research</a>
+              <div id="arc" class="w3-panel w3-leftbar w3-light-grey topic-cnt">
+                <p><b>Research Center.</b> 
+                <img src="images/athena_vert.png" style="float:right;width:100px;margin-left: 5px;" />                   
+                The "Athena" Research and Innovation Centre in Information, Communication and Knowledge Technologies (ARC) is one of the leading research centers in Europe. It serves the full spectrum of the research lifecycle, starting from basic and applied research, continuing on to system & product building and infrastructure service provision, and ending with technology transfer and entrepreneurship. The fundamental role of ARC is to build knowledge and devise solutions and technologies for the digital society. Its value lies in the unique collection of skills and know-how of its researchers and professional staff and its national and international reputation. ARC comprises three institutes and five units. The institutes cover vibrant areas of digital technology and the units incubate know-how development activities that may lead to new major development directions. The institutes are: Institute for Language and Speech Processing (ILSP), the Industrial Systems Institute (ISI), and the Information Management Systems Institute (IMSI). The units are: Corallia - Hellenic technology cluster initiative, Space programmes (SPU), Robot perception and interaction (RPI), Environmental and networking technologies and applications (ENTA), and Pharma - Informatics.</p>
+                <p><b>Institute.</b> 
+                <img src="images/athena-1.png" style="float:left;width:150px;margin-right: 5px;" /> 
+                ARC participates in the project through its Information Management Systems Institute (IMSI). Established in 2007, the Information Management Systems Institute (IMSI) is today one of Greece’s premier research centers in the areas of large-scale information systems and Big Data management. Over the past few years, the 100+ IMIS researchers have been very successful in attracting and implementing numerous cutting-edge research & development projects, at both the national and international level. IMSI has produced numerous, high quality scientific publications in these fields, and has a proven record of success in obtaining competitive funding from EU and national programmes. More than 90% of IMSI budget comes from competitive funding. The key personnel of IMSI have a long and pertinent experience in participating in and leading EU projects with an emphasis on topics for Big Data management, Cloud technologies, Open Data, and e-Infrastructures. IMSI has extensive research and innovation expertise in the areas of big data management and analytics, data modeling and integration, big data infrastructure, data exploration, user personalization, natural language processing, data privacy, linked data, data provenance, and more. IMSI provides knowledge management and information systems technologies for large-scale knowledge management, data-intensive applications, and for a wide range of digital resources and domains. It has successfully led the integration of  manifold large-scale real-world information systems, daily offering their services to thousands of users, and has participated in many successful EU-funded Research & Innovation projects.</p>
+              </div>
+              <p></p>
+
+          </div>
+
+          <!-- Supervisors -->
+          <h1 class="w3-text-teal">Supervisors</h1>
+
+          </p>The DEDS supervisory team are world-class experts in the domain of data management and analytics, bringing at the same time a complementary expertise in relevant disciplines as well. The DEDS supervisors have demonstrated both supervision experience and a record of academic performance at a high level of excellence. They have extensive experience in supervising in total more than 145 PhD students, many of which under double/joint degree agreements. In the last five years, they have published 440+ articles in top journals and conferences, and scientific books.</p>
+
+          <!-- Expand/Collapse button -->
+          <div id="btn-supervisors" style="color: teal; text-decoration: underline; margin-bottom: 20px;" >Expand all supervisors</div>
+
+          <!-- List of Supervisors -->
+          <div id="team2" class="accordion">
+
+              <a class="topic-hdr"><b>ULB team</b></a>
+              <div id="sup-ulb" class="w3-panel w3-leftbar w3-light-grey superv-team">
+                <p><b>Prof. Esteban Zimányi</b>. <img id="supIco" src="images/people/ez.jpg" /> Coordinator of the IT4BI, IT4BI-DC, and BDMA EM programmes. Publications: 16 co-authored and co-edited books, 18 book chapters, 19 journal papers, 82 conference papers. H-index: 34. Projects: 24 research projects (incl. 5 EM, 1 FP5). PhD supervision: 15 graduated, 10 ongoing. Expertise: data warehouses and OLAP, spatio-temporal data management, semantic web. Role: Programme Coordinator, 
+                  <!-- WP8 Leader,  -->
+                supervision of ESR2.3, ESR2.4, ESR2.5, and ESR3.1.</p>
+                <p><b>Prof. Gianluca Bontempi</b>. <img id="supIco" src="images/people/gb.jpg" /> Publications: 3 co-authored and co-edited books, 11 book chapters, 90 journal papers, 97 conference papers. Best paper awards at DSAA 2017. H-index: 52. Projects: 6 research projects. PhD supervision: 12 graduated, 3 ongoing. Expertise: scalable ML, big data science, forecasting, modeling, simulation. Role: Supervision of ESR2.2, ESR3.3, and ESR4.2. <input type="button" onclick="window.open('https://mlg.ulb.ac.be')" value='more...' style='border-style: 0px;'/> </p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr"><b>UPC team</b></a>
+              <div id="sup-upc" class="w3-panel w3-leftbar w3-light-grey superv-team">
+                <p><b>Prof. Alberto Abelló</b>. <img id="supIco" src="images/people/aa.jpg" /> Local coordinator of T4BI-DC EM programme. Publications: 27 journal papers, 70 conference papers, 10 book chapters, 6 edited books and journals. H-index: 26. Projects: 12 research projects (incl. 3 EM, 1 H2020), 8 industrial projects (incl. HP Labs, SAP, WHO, Zurich IG). PhD supervision: 8 graduated, 3 ongoing. Expertise: big data management, data-intensive flows, query optimization, metadata management. Role: Local Programme Coordinator at UPC, 
+                <!-- WP6 Leader,  -->
+                supervision of ESR1.2, ESR2.2, ESR2.5 and ESR2.6.</p>
+                <p><b>Prof. Oscar Romero</b>. <img id="supIco" src="images/people/or.jpg" /> Local coordinator of the BDMA EM programme and the Data Science master at the Faculty of Informatics of UPC. Publications: 4 book chapters, 20 journal papers, 50 conference papers. H-index: 19. Projects: 10 research projects (incl. 3 EM, 1 H2020), 7 industrial projects (incl. HP Labs, SAP, WHO, Zurich IG). PhD supervision: 4 graduated, 4 ongoing. Expertise: big data management, data integration, semantic web, data-intensive flows, metadata management, automatic user assistance. Role: 
+                <!-- WP1 Leader,  s-->
+                Supervision of ESR1.1, ESR2.1 and ESR3.2.</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr"><b>AAU team</b></a>
+              <div id="sup-aau" class="w3-panel w3-leftbar w3-light-grey superv-team">
+                <p><b>Prof. Torben Bach Pedersen</b>. <img id="supIco" src="images/people/tbp.jpg" /> ACM Distinguished Scientist. Publications: 11 co-authored and co-edited books, 15 book chapters, 44 journal papers, 139 conference papers. H-index: 45. Projects: 22 research projects (incl. 1 EM, 2 H2020, 2 FP7, 1 FP6), 10 Danish strategic projects with industrial partners (including SAP, IBM Ireland, TARGIT, Lyngsoe, SAS, IATA). 2 software patents. PhD supervision: 20 graduated, 9 ongoing. Expertise: big data analytics, business intelligence, multidimensional databases, OLAP, data mining. Role: Local Programme Coordinator at AAU, supervision of ESR4.1 and ESR4.3.</p>
+                <p><b>Prof. Katja Hose</b>. <img id="supIco" src="images/people/kh.jpg" /> Publications: 1 co-authored/co-edited book, 1 book chapter, 18 journal papers, 74 conference papers. Best student paper award at WWW 2013, best demo award at WWW 2017, best poster award at ESWC 2018. H-index: 20. Projects: 5 research projects. PhD supervision: 3 graduated, 5 ongoing. Expertise: distributed query processing and optimisation, data integration, indexing, Semantic Web and Linked Open Data. Role: Equal opportunities commissioner (EOC), supervision of ESR1.2, ESR1.3, and ESR3.3. </p>
+                <p><b>Prof. Christian Thomsen </b>. <img id="supIco" src="images/people/ct.jpg" /> Publications: 1 co-authored book, 9 journal papers, 24 conference papers. H-index: 15. Projects: 1 research project. PhD supervision: 2 graduated, 5 ongoing. Expertise: data warehousing, OLAP, ETL, big data management, data-intensive flows. Role: 
+                <!-- WP5 Leader, s -->
+                Supervision of ESR2.3. </p>
+                <p><b>Prof. Kristian Torp </b>. <img id="supIco" src="images/people/kt.jpg" /> Publications: 1 book chapters, 5 journal papers , 30 conference papers. H-index: 13. Projects: 5 research projects (2 FP7, 2 H2020, 1 InterReg). PhD supervision: 2 graduated, 1 ongoing. Expertise: data management, GPS data, fuel data, spatio-temporal dataRole: 
+                <!-- WP3 Leader, s -->
+                Supervision of ESR2.4 and ESR3.1.</p>
+              </div>
+              <p></p>
+
+              <a class="topic-hdr"><b>ARC team</b></a>
+              <div id="sup-arc" class="w3-panel w3-leftbar w3-light-grey superv-team">
+                <p><b>Prof. Minos Garofalakis </b>. <img id="supIco" src="images/people/mg.jpg" /> ACM/IEEE Fellow. Publications: 2 co-authored and co-edited books, 7 book chapters, 57 journal papers, 95 conference papers. H-index: 63. Projects: 7 research projects. 29 patents. PhD supervision: 1 graduated, 1 ongoing. Expertise: big data analytics, largescale machine learning, database systems, centralized/distributed data streams, data synopses and approximate query processing, uncertain databases, secure/private data analytics. Role: Supervision of ESR1.3, ESR3.2, and ESR4.2.</p>
+                <p><b>Prof. Yannis Ioannidis </b>. <img id="supIco" src="images/people/yi.jpg" /> ACM/IEEE Fellow, member of Academia Europaea, recipient of ACM SIGMOD Contributions Award, VLDB 10-year best paper award.Publications: 8 co-edited proceedings-based books, 9 book chapters, 71 journal papers, 150 conference papers. H-index: 60. Projects: 40+ research projects. PhD supervision: 14 graduated, 8 ongoing. Expertise: data science, data and text analytics, scalable data processing, recommender systems and personalization. Role: 
+                <!-- WP7 Leader, s -->
+                Supervision of ESR4.1 and ESR4.3.</p>
+                <p><b>&#x44;&#x72;&#x2E;&#x20;&#x41;&#x6c;&#x6b;&#x69;&#x73;&#x20;&#x53;&#x69;&#x6d;&#x69;&#x74;&#x73;&#x69;&#x73;</b>. <img id="supIco" src="images/people/as.png" /> &#x49;&#x45;&#x45;&#x45;&#x20;&#x73;&#x65;&#x6e;&#x69;&#x6f;&#x72;&#x20;&#x6d;&#x65;&#x6d;&#x62;&#x65;&#x72;&#x2e;&#x20;&#x50;&#x75;&#x62;&#x6c;&#x69;&#x63;&#x61;&#x74;&#x69;&#x6f;&#x6e;&#x73;&#x3a;&#x20;&#x32;&#x20;&#x63;&#x6f;&#x2d;&#x61;&#x75;&#x74;&#x68;&#x6f;&#x72;&#x65;&#x64;&#x20;&#x61;&#x6e;&#x64; co-edited books, 9 book chapters, 17 journal papers, 76 Conference papers. H-index: 41. Projects: 15+ industrial projects (with IBM, HP, HPE, MicroFocus). 36 patents. PhD supervision: 2 thesis committees, 8 mentored. Expertise: scalable big data infrastructure, data-intensive analytics, real-time business intelligence, massively parallel processing, cloud computing. Role: Local Programme Coordinator at ARC, 
+                <!-- WP4 Leader,  -->
+                supervision of ESR2.1 and ESR2.6.</p>
+              </div>
+              <p></p>
+
+          </div>
+
+          <!-- Partner organisations -->
+          <h1 class="w3-text-teal">Partner Organisations</h1>
+
+          </p>ESRs will have the opportunity to do part of their research work at associated partners comprising prominent research and industry organizations.</p>
+
+          <p>The partner organisations, nine of which have research departments, were selected to bring additional expertise to the consortium to support the beneficiaries in the training of students at the forefront of research and innovation. As domain experts and innovation leaders, they have unique insights into, and experience with, the specific problems of the data value creation lifecycle in their domain. Hence, they provide crucial use cases and datasets in which the proposed research can be grounded or validated. As the figure below illustrates, these use cases collectively cover a wide range of sectors and disciplines, including Energy (CERN, SG), Health (AUH, WHO), Finance (SPR, WOL), Transport (BSC, EUC, FDK, MT), and Customer Relationship and Support (DGT, EUN, ORA, RM). Besides their role of use case providers, as open source platform leaders, CERN and RM will also help on the integration of the research.</p>
+
+          <img id="assoc-partners" class="partners" src="images/assoc-partners.png" alt="DEDS use case disciplines and secondments">
+
+          <p>A list of the partner organization follows:</p>
+
+          <h4 class="w3-text-teal">Higher Education Institutions</h4>
+          <ul class="w3-ul">
+            <li><b>National and Kapodistrian University of Athens (<a href="https://www.di.uoa.gr/en">UOA</a>), EL</b> - Degree Awarding Institute for ARC</li>
+            <li><b>Technische Universitat Dresden (<a href="https://wwwdb.inf.tu-dresden.de/">TUD</a>), DE</b> - Advisory board</li>
+          </ul> 
+
+          <h4 class="w3-text-teal">Academic Network</h4>
+          <ul class="w3-ul">
+            <li><b><a href="https://timeassociation.org/">T.I.M.E.</a> Association, FR</b> - Communication and dissemination, quality assessment, advisory board</li>
+          </ul> 
+
+          <h4 class="w3-text-teal">Research Institutes</h4>
+          <ul class="w3-ul">
+            <li><b>Barcelona Supercomputing Center (<a href="https://www.bsc.es/research-development/research-areas/big-data/distributed-object-management">BSC<a/>), ES</b> - ESR secondment, original research</li>
+            <li><b>European Organization for Nuclear Research (<a href="https://home.cern/">CERN</a>), CH</b> - ESR secondment, original research, incubator</li>
+          </ul> 
+
+          <h4 class="w3-text-teal">Industrial Companies</h4>
+          <ul class="w3-ul">
+            <li><b>EURA NOVA (<a href="https://euranova.eu/">EUN</a>), BE </b> - ESR secondment, original research</li>
+            <li><b>Eurecat (EUC), ES</b> - ESR secondment, original research</li>
+            <li><b>FlexDanmark (FDK), DK</b> - ESR secondment, original research</li>
+            <li><b>Marine Traffic (<a href="https://www.marinetraffic.com/">MT</a>), EL</b> - ESR secondment, original research</li>
+            <li><b>Orange Belgium (ORA), BE</b> - ESR secondment, original research</li>
+            <li><b>RapidMiner (<a href="https://rapidminer.com/">RM</a>), DE</b> - ESR secondment, original research</li>
+            <li><b>Siemens Gamesa Renewable Energy A/S (SG), DK</b> - ESR secondment, original research</li>
+            <li><b>Spring Techno (<a href="http://springtechno.eu/">SPR</a>),  DE</b> - ESR secondment, original research</li>
+            <li><b>Worldline (WOL), FR</b> - ESR secondment, original research</li>
+          </ul> 
+
+          <h4 class="w3-text-teal">Public Organisations</h4>
+          <ul class="w3-ul">
+            <li><b>Aalborg University Hospital, Department of Haematology (AUH), DK</b> - ESR secondment, original research</li>
+            <li><b>Direccio General de Turisme, Catalan Government (DGT), ES</b> - ESR secondment, original research</li>
+            <li><b>World Health Organization, Neglected Tropical Diseases (WHO), CH</b> - ESR secondment, original research</li>
+          </ul> 
+
+        </div>
+
+        <div class="w3-third w3-container">
+          <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center"></p> -->
+        </div>
+
+      </div>
+
+
+      <!-- Apply -->
+      <div id="frmApply" class="frmClass w3-row w3-padding-32">
+        <div class="w3-row w3-twothird w3-container">
+
+          <h1 class="w3-text-teal">How to Apply</h1>
+
+          <p>To apply for the programme, please fill in the application form at the following URL: </p>
+          <p><b>Application form</b>: <a href="https://deds.ulb.ac.be/emundus/">https://deds.ulb.ac.be/emundus/ </a></p>
+
+          <p><b>Application manual</b>: Before applying please, read carefully the <a href="https://deds.ulb.ac.be/emundus/images/stories/provided_documents/deds_application_manual.pdf">Application Manual</a> that describes in detail the application procedure and requirements. It covers the most frequent questions.</p>
+
+
+           <h1 class="w3-text-teal">Important Dates</h1>
+
+          <!-- <p>--TBD--</p> -->
+          <ul class="w3-ul">
+            <li><b>Application deadline</b>: February 7, 2021, midnight AoE (Anywhere on Earth)</li>
+            <li><b>Interviews</b>: Mid of February 2021 - Mid of March 2021</li>
+            <li><b>Notification</b>: End of March 2021</li>
+          </ul>
+
+          <h1 class="w3-text-teal">Eligibility Criteria</h1>
+
+          <p>Applications must abide by the following minimum eligibility criteria (EC): </p>
+
+          <ul class="w3-ul">
+            <li><b>EC1</b>: The Candidate must have been awarded the equivalent of 300 ECTS from his/her Bachelor and Master's degrees (of which, at least 60 of those ECTS must correspond to the Master's degree) with a major in computer science, from an accredited university listed in the World Higher Education Database (<a href="http://www.whed.net/home.php">WHED</a>) or included in the following university rankings: (a) <a href="http://www.timeshighereducation.co.uk/world-university-rankings/">The Times Higher Education World University Rankings</a>, (b) <a href="http://www.arwu.org/">Academic Ranking of World Universities</a>, or (c) <a href="http://www.topuniversities.com/university-rankings/world-university-rankings">QS World University Rankings</a>.</li>
+
+            <li><b>EC2</b>: The Candidate must be able to demonstrate proficiency in English by means of:
+            <p>(a) Either an internationally recognised test equivalent to level C1 in the Common European Framework of Reference for Languages (<a href="http://www.coe.int/t/dg4/linguistic/CADRE_EN.asp">CEFR</a>). These tests include, e.g., Cambridge English First A, IELTS (academic) 7.0, TOEFL (paper based) 590, TOEFL (computer based) 243, TOEFL (Internet based), etc.</p>
+            <p>(b) Or, a document issued by the university awarding his/her Bachelor or Master's degree certifying that its tuition language was English.</p>
+            </li>
+
+            <li><b>EC3</b>: The Candidate must be, at the date of recruitment, in the first four years (full-time equivalent research experience) of his/her research career and has not been awarded a doctoral degree. The full-time equivalent research experience is measured from the date when the Candidate obtained the degree entitling him/her to embark on a doctorate, either in the country in which the degree was obtained or in the country in which the Candidate is recruited, even if a doctorate was never started or envisaged. Applicants who were awarded the degree entitling him/her to embark on a doctorate in a period longer than the stated, must describe in the cover letter the activities undertaken during this period. These activities cannot be research-oriented.</li>
+
+            <li><b>EC4</b>: The Candidate must not have resided or carried out his/her main activity (work, studies, etc.) in the country of the Home Institution for more than 12 months in the 3 years immediately before the recruitment date. Compulsory national service, short stays such as holidays, and time spent as part of a procedure for obtaining refugee status under the Geneva Convention are not taken into account.</li>
+          </ul>
+
+          <h1 class="w3-text-teal">Selection Procedure</h1>
+
+          <p>Eligible applications will be scored according to the following selection criteria (SC):</p>
+
+          <ul class="w3-ul">
+            <li><b>SC1</b>: Domain of the bachelor and master 15% </li>
+            <li><b>SC2</b>: Normalised academic results 40% </li>
+            <li><b>SC3</b>: Research experience 15% </li>
+            <li><b>SC4</b>: Professional experience 10% </li>
+            <li><b>SC5</b>: Recommendation letters 10% </li>
+            <li><b>SC6</b>: CV, research proposal, and motivation 10% </li>
+          </ul>
+          
+          <p>Criteria SC1–SC4 correspond to a score automatically calculated, while criteria SC5 and SC6 will be manually scored by the experts of the Selection and Evaluation Committee (SEC). A final score will be calculated for each applicant, and a first ranking automatically produced, which will help the SEC do a first pre-selection.</p> 
+
+          <p>Two knockout rounds of interviews will be performed. The first one focusing on transversal skills, and the second on technical background, including the discussion of a research paper.</p> 
+
+          <p>A main and a reserve list will be produced (with a third interview for borderline candidates) and when approved by the relevant Home and Host universities, the Committee will notify the applicants of the result of the selection process. Non-granted candidates may appeal through a complaint letter.</p> 
+
+          <p>Selected applicants will receive an official letter of acceptance, the Candidate Agreement and practical information about the programme. After confirmation from the candidate who will return the Candidate Agreement signed, the hiring and registration process will start at the corresponding beneficiaries.</p>
+
+
+        </div>
+
+        <div class="w3-third w3-container"></div>
+
+      </div>
+
+
+      <!-- Events -->
+      <div id="frmEvents" class="frmClass w3-row w3-padding-32">
+
+        <div class="w3-row w3-twothird w3-container">
+
+          <h1 class="w3-text-teal">Training Events</h1>
+
+          <p>To complement the local training at the Home/Host universities, the consortium will benefit from DEDS's multidisciplinary nature and organise training events specifically targeted at the ESRs' needs as listed below.</p>
+
+          <ul class="w3-ul">
+            <li><b>Winter School on "Ethical and Legal Aspects of Data"</b>
+              <p>Organizer: ARC, month 12</p>
+              <p>Main contributors: ARC (GDPR in the sciences), AUH Hospital (Privacy and data protection), WHO (Ethics in health data)</p>
+            </li>
+            <li><b>Summer School on "Big Data Analytics and Management"</b>
+              <p>Organizer: ULB, month 17</p>
+              <p>Main contributors: ULB (Spatial data analytics), RM (Data science in industry), CERN (Data Science in research), TUD (Scalable Data Science Systems)</p>              
+            </li>
+            <li><b>Winter School on "Entrepreneurship and Innovation"</b>
+              <p>Organizer: AAU, month 24</p>
+              <p>Main contributors: AAU (IPR, spin-off creation), EUN (Research-driven innovation), BSC (Technology transfer), CERN (Entrepreneurship), EUC (Data Science innovation)</p>              
+            </li>
+            <li><b>Summer School on "Applied Statistics"</b>
+              <p>Organizer: UPC, month 29</p>
+              <p>Main contributors: UPC (Modern statistical tools and methods), MT (Applied Machine Learning), WOL (Timeseries forecasting)</p>              
+            </li>
+            <li><b>Final Conference on "Data Engineering for Data Science Innovation"</b>
+              <p>Organizer: ULB, month 41</p>
+              <p>Main contributors: All</p>
+            </li>
+ 
+            <p>The winter schools are devoted to the development of transferable skills. The first one brings knowledge and skills from the ethical and legal domains, which are crucial for data scientists. The second winter school provides ESRs with knowledge about how to commercialize research results, first focusing on entrepreneurship and exploring how to turn research into innovations and new startups, and then focusing on Intellectual Property Rights and give an understanding of the importance of using patents. </p>
+
+            <p>The summer schools are devoted to core scientific skills and explore emerging perspectives in Data Science. The first one provides ESRs with deep understanding of the relationship between data analytics and the management of Big Data. The second one reinforces students with knowledge and experience of applied statistics.</p>
+
+            <p>The final conference disseminates the results of the project to both industry and academic sectors.</p>
+
+            <p>Both academic and non-academic partners are involved in all schools and the final conference. In addition to offering training opportunities, the winter and summer schools also act as mechanisms for the ESRs to present and discuss their research and training, and get feedback from all members of the consortium (both academic and non-academic) as well as external experts, thus being collectively monitored and externally evaluated.</p>
+
+        </div>
+
+        <div class="w3-third w3-container"></div>
+
+      </div>
+      
+      
+      <!-- FAQ -->
+      <div id="frmFaq" class="frmClass w3-row w3-padding-32">
+        <div class="w3-row w3-twothird w3-container">
+          <p style="height: 1000px;">Under construction...</p>
+        </div>
+        <div class="w3-third w3-container"></div>
+      </div>
+
+      
+      <!-- Documents -->
+      <div id="frmDocuments" class="frmClass w3-row w3-padding-32">
+        <div class="w3-row w3-twothird w3-container">
+
+          <h1 class="w3-text-teal">Useful Documents</h1>
+
+          <p><b>Promotional material</b>: Documents to advertise DEDS' activities (posters, leaflets, etc.)</p>
+
+          <div id = "doc-material" class="">
+
+              <figure class="fig">
+                <a href="docs/promotion/deds-poster-1.pdf">
+                  <img class="fig-thmb" src="docs/promotion/deds-poster-1-sm.png"/>
+                </a>
+                <figcaption>
+                  <p class="fig-caption">Poster #1</p>
+                  <p class="fig-type"><a href="docs/promotion/deds-poster-1.pdf">[pdf]</a> 1.2MB</p>
+                  <p class="fig-type"><a href="docs/promotion/deds-poster-1.png">[png]</a> 675KB</p>
+                </figcaption>
+              </figure>
+
+              <figure class="fig">
+                <a href="docs/promotion/deds-cfp-1.pdf">
+                  <img class="fig-thmb" src="docs/promotion/deds-cfp-pdf-1-sm.png"/>
+                </a>
+                <figcaption>
+                  <p class="fig-caption">CFP #1</p>
+                  <p class="fig-type"><a href="docs/promotion/deds-cfp-1.pdf">[pdf]</a> 164KB</p>
+                  <p class="fig-type"><a href="docs/promotion/deds-cfp-1.txt">[txt]</a> 3KB</p>
+                </figcaption>
+              </figure>
+
+          </div>
+
+          <p style="height: 300px;"></p>
+
+        </div>
+        <div class="w3-third w3-container"></div>
+      </div>      
+
+
+      <!-- Contact -->
+      <div id="frmContact" class="frmClass w3-row w3-padding-32">
+        <div class="w3-row w3-twothird w3-container">
+
+          <h1 class="w3-text-teal">Contact Information</h1>
+
+          <p><b>Application related questions</b>: For all information about the DEDS programme, eligibility, and the application procedure please refer to the Application Manual. We kindly advise you to carefully follow the instructions from this document, while filling in your application.</p>
+
+          <p>For all additional questions regarding the application process, you are welcome to contact us at <a href="mailto:deds_admissions@cs.ulb.ac.be">deds_admissions@cs.ulb.ac.be</a>.</p>
+
+          <p><b>General questions</b>: For information on the programme, mobility, relatioships with companies, and any general question please contact us at <a href="mailto:deds@cs.ulb.ac.be">deds@cs.ulb.ac.be</a>.</p>
+
+          <p style="height: 300px;"></p>
+
+        </div>
+        <div class="w3-third w3-container"></div>
+      </div>
+
+
+    <!-- end-of-main -->
+    </div>
+
+  <!-- end-of-content -->
+  </div>
+
+<!-- end-of-page -->
+</div>
+
+</body>
+</html>
