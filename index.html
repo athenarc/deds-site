@@ -15,7 +15,35 @@
 <link rel="stylesheet" href="deds.min.css">
 <script src="deds.min.js"></script>
 
+<style type="text/css">
+  /* Stile generale */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
+#content {
+  max-width: 800px; /* Imposta la larghezza massima del contenuto */
+  margin: 0 auto;   /* Centra il contenuto orizzontalmente */
+  padding: 20px;    /* Aggiunge uno spazio attorno al contenuto */
+}
+
+/* Stile per il paragrafo contenente il testo bio */
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Stile per l'immagine */
+img {
+  max-width: 70%;  /* Rende l'immagine responsiva */
+  height: auto;    /* Impedisce la deformazione dell'immagine */
+  display: block;  /* Rimuove spazi vuoti sotto l'immagine */
+  margin-top: 10px; /* Aggiunge uno spazio sopra l'immagine */
+}
+
+</style>
 <body>
 
 <div id="page" class="">
@@ -64,6 +92,7 @@
         <a id="nfrmEvents" href="#Events" onclick="togglePage('frmEvents');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Events</a>
         <!-- <a id="nfrmFaq" href="#Faq" onclick="togglePage('frmFaq');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">FAQ</a> -->
         <a id="nfrmDocuments" href="#Documents" onclick="togglePage('frmDocuments');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Documents</a>
+        <a id="nfrmContact" href="#Students" onclick="togglePage('frmStudents');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Students</a>
         <a id="nfrmContact" href="#Contact" onclick="togglePage('frmContact');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Contact</a>
       </div>
     </div>
@@ -83,6 +112,7 @@
       <a id="sfrmEvents" href="#Events" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmEvents');">Events</a>
       <!-- <a id="sfrmFaq" href="#Faq" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmFaq');">FAQ</a> -->
       <a id="sfrmDocuments" href="#Documents" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmDocuments');">Documents</a>
+      <a id="sfrmDocuments" href="#Students" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmStudents');">Students</a>
       <a id="sfrmContact" href="#Contact" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmContact');">Contact</a>
     </nav>
 
@@ -920,6 +950,83 @@ supervision of ESR2.4 and ESR3.1.</p>
         </div>
         <div class="w3-third w3-container"></div>
       </div>      
+
+
+      
+
+      <!-- Students -->
+ <!-- Students -->
+ <div id="frmStudents" class="frmClass w3-row w3-padding-32">
+  <div class="w3-row w3-twothird w3-container">
+    <h1 class="w3-text-teal">Students</h1>
+
+<div id="content"></div>
+
+<script>
+function fetchData() {
+  // Nomi delle cartelle
+  const folderNames = [
+    'Abduvoris',
+    'Antheas',
+    'Antonios',
+    'Ataur',
+    'Daniele',
+    'Eros Fabrici',
+    'ibraheem',
+    'Ikhtiyor_Nematov',
+    'Marcos_MATERIAL_DEDS_WEBSITE',
+    'Rodrigo',
+    'Song WU-DEDS-publicity',
+    'Uche',
+    'Yeasmin'
+  ];
+
+  // Use Promise.all to fetch data for all folders in parallel
+  Promise.all(folderNames.map(folderName => {
+    // Fetch bio.txt for each folder
+    const bioPromise = fetch(`./ESR_Material/${folderName}/bio.txt`).then(response => response.text());
+
+    // Fetch photo.jpg for each folder
+    const photoPromise = fetch(`./ESR_Material/${folderName}/photo.jpg`).then(response => response.blob());
+
+    // Return a promise that resolves with both bio text and photo blob
+    return Promise.all([bioPromise, photoPromise]);
+  }))
+  .then(dataArray => {
+    // Process the data for each folder
+    dataArray.forEach(([bioText, photoBlob], index) => {
+      // Assuming you want to display the data on the page
+      displayData(folderNames[index], bioText, photoBlob);
+    });
+  })
+  .catch(error => console.error('Error fetching data:', error));
+}
+
+function displayData(folderName, bioText, photoBlob) {
+  // Create an image element for the folder
+  var image = document.createElement('img');
+  image.src = URL.createObjectURL(photoBlob);
+  image.alt = `${folderName} Photo`;
+  // Create a new paragraph element for the folder
+  var paragraph = document.createElement('p');
+  paragraph.innerHTML = `<strong>${folderName}</strong><br>${bioText}`;
+
+  
+
+  // Append the paragraph and image to an existing container element with the ID "content"
+  var contentContainer = document.getElementById('content');
+    contentContainer.appendChild(image);
+
+  contentContainer.appendChild(paragraph);
+}
+
+// Load sections when the DOM is ready
+document.addEventListener("DOMContentLoaded", function () {
+  fetchData();
+});
+</script>
+
+
 
 
       <!-- Contact -->
