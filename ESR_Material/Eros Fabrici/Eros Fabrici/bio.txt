@@ -1,0 +1,8 @@
+Eros Fabrici is a Marie Curie Early Stage Researcher at the
+Athena Research and Innovation Center and the Universitat
+Politiecnica de Catalunya. He obtained his BSc in Computer
+Science, Web, and Multimedia Technologies at the University
+of Udine and his MSc in Data Science and Scientific
+Computing at the University of Trieste, both located in Friuli Venezia Giulia, Italy. 
+His research interests span Data and Software Engineering, Algorithms, Data Structures and Privacy.
+In his free time, he enjoys doing sports and music research.

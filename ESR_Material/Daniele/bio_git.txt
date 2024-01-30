@@ -1,0 +1,29 @@
+At the moment I have only one published work.
+My only publication is “Adversarial Learning in Real-World Fraud Detection: Challenges and Perspectives”, published with the DEC '23: Proceedings of the Second ACM Data Economy Workshop. Here is the link: https://dl.acm.org/doi/10.1145/3600046.3600051 . You can find it in green open access here: https://arxiv.org/abs/2307.01390 .
+
+Concerning the social media posts, I was invited to post the article on Kudos (https://www.growkudos.com/?utm_source=navbar-logo), and here is the post: https://www.growkudos.com/publications/10.1145%25252F3600046.3600051/reader . I do not know whether I shall mention DEDS also there, or if it counts as a social post.
+
+A brief explanation of the paper, which I wrote for Kudos, can be found in the txt file. I hope it is clear and technical enough.
+
+ 
+
+Concerning Github, here is the repository of a journal article we submitted and which is currently under review https://github.com/FaramirHurin/ADV-O
+
+ 
+
+ 
+
+The bio is:
+
+“Daniele Lunghi earned a master's degree in Computer Science and Engineering from Politecnico di Milano. He is currently pursuing a joint Ph.D. at the Université Libre de Bruxelles (ULB) and the Athena Research Center (ARC) under the auspices of DEDS (No 955895), a Horizon 2020 Marie Skłodowska-Curie Innovative Training Network.
+
+He embarked on his Ph.D. journey in 2021 and actively contributes as a member of the Machine Learning Group lab at ULB.
+
+His research focuses on adversarial machine learning, fraud detection, and imbalanced learning.”
+
+ 
+
+
+I still need to collect the posters from previous presentations, but I will do it as soon as possible.
+
+Please let me know if I am missing something else.
