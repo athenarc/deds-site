@@ -1,0 +1,12 @@
+My goal is to find the best trustworthy source among multiple sources that provide overlapping data so that the user can rely on the quality data and make their decisions. To enable this. I focus on the research area of data transformation over multiple data sources.
+Specially, I focus on truth discovery techniques to find the true value of a specific piece of data element which has different values in multiple sources.The main challenge here is to having the gold standard data because each source can have different level of data quality.
+
+Data analysts work in collaborative frameworks relying on partial results presented by others. They only have a restrained design of the complete data movement instead of having the view of whole data flow. As a result, they fail to find whether the origin of the data collected and transformed from any defects or not. Thus, it is inevitable to systematically keep track of all data transformations and alterations from the source to the result analysis. Moreover, how the original features of the data are affected needs to be evaluated to guarantee traceability and improve trustability. This project will cope with difficulties ranging from the number of notations produced to the impact of data transformations in the quality metrics. We will first collect data at different granularities, then link them properly, and estimate the effect of transformations.
+
+Objectives:
+•	Mathematical model creation to propagate trust
+•	A protocol to keep track of data transformations
+•	A prototype showing the usability of trust and quality annotations
+•	Evaluation of the prototype
+
+I love to help people by sharing knowledge that I have. This is the reason I chose my career as researcher so that I can spread this knowledge (I will be learning this 3 years) to the people who are interested to learn new things. Besides that, I love to read books and cook new dishes during my leisure time.
