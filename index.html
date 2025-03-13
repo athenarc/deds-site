@@ -92,8 +92,9 @@ img {
         <a id="nfrmEvents" href="#Events" onclick="togglePage('frmEvents');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Events</a>
         <!-- <a id="nfrmFaq" href="#Faq" onclick="togglePage('frmFaq');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">FAQ</a> -->
         <a id="nfrmDocuments" href="#Documents" onclick="togglePage('frmDocuments');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Documents</a>
-        <a id="nfrmContact" href="#Students" onclick="togglePage('frmStudents');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Students</a>
+        <a id="nfrmStudents" href="#Students" onclick="togglePage('frmStudents');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Students</a>
         <a id="nfrmContact" href="#Contact" onclick="togglePage('frmContact');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Contact</a>
+        <a id="nfrmFinalEvent" href="#FinalEvent" onclick="togglePage('frmFinalEvent');" class="nvItem w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Final Event</a>
       </div>
     </div>
 
@@ -112,8 +113,9 @@ img {
       <a id="sfrmEvents" href="#Events" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmEvents');">Events</a>
       <!-- <a id="sfrmFaq" href="#Faq" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmFaq');">FAQ</a> -->
       <a id="sfrmDocuments" href="#Documents" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmDocuments');">Documents</a>
-      <a id="sfrmDocuments" href="#Students" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmStudents');">Students</a>
+      <a id="sfrmStudents" href="#Students" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmStudents');">Students</a>
       <a id="sfrmContact" href="#Contact" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmContact');">Contact</a>
+      <a id="sfrmFinalEvent" href="#FinalEvent" class="sbItem w3-bar-item w3-button w3-hover-black" onclick="togglePage('frmFinalEvent');">Final Event</a>
     </nav>
 
     <!-- Overlay effect for sidebar on small screens -->
@@ -954,79 +956,6 @@ supervision of ESR2.4 and ESR3.1.</p>
 
       
 
-      <!-- Students -->
- <!-- Students -->
- <div id="frmStudents" class="frmClass w3-row w3-padding-32">
-  <div class="w3-row w3-twothird w3-container">
-    <h1 class="w3-text-teal">Students</h1>
-
-<div id="content"></div>
-
-<script>
-function fetchData() {
-  // Nomi delle cartelle
-  const folderNames = [
-    'Abduvoris',
-    'Antheas',
-    'Antonios',
-    'Ataur',
-    'Daniele',
-    'Eros Fabrici',
-    'ibraheem',
-    'Ikhtiyor Nematov',
-    'Marcos',
-    'Rodrigo',
-    'Song WU',
-    'Uche',
-    'Yeasmin'
-  ];
-
-  // Use Promise.all to fetch data for all folders in parallel
-  Promise.all(folderNames.map(folderName => {
-    // Fetch bio.txt for each folder
-    const bioPromise = fetch(`./ESR_Material/${folderName}/bio.txt`).then(response => response.text());
-
-    // Fetch photo.jpg for each folder
-    const photoPromise = fetch(`./ESR_Material/${folderName}/photo.jpg`).then(response => response.blob());
-
-    // Return a promise that resolves with both bio text and photo blob
-    return Promise.all([bioPromise, photoPromise]);
-  }))
-  .then(dataArray => {
-    // Process the data for each folder
-    dataArray.forEach(([bioText, photoBlob], index) => {
-      // Assuming you want to display the data on the page
-      displayData(folderNames[index], bioText, photoBlob);
-    });
-  })
-  .catch(error => console.error('Error fetching data:', error));
-}
-
-function displayData(folderName, bioText, photoBlob) {
-  // Create an image element for the folder
-  var image = document.createElement('img');
-  image.src = URL.createObjectURL(photoBlob);
-  image.alt = `${folderName} Photo`;
-  // Create a new paragraph element for the folder
-  var paragraph = document.createElement('p');
-  paragraph.innerHTML = `<strong>${folderName}</strong><br>${bioText}`;
-
-  
-
-  // Append the paragraph and image to an existing container element with the ID "content"
-  var contentContainer = document.getElementById('content');
-    contentContainer.appendChild(image);
-
-  contentContainer.appendChild(paragraph);
-}
-
-// Load sections when the DOM is ready
-document.addEventListener("DOMContentLoaded", function () {
-  fetchData();
-});
-</script>
-
-
 
 
       <!-- Contact -->
@@ -1046,6 +975,166 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <div class="w3-third w3-container"></div>
       </div>
+
+      <!-- Final Event -->
+      <div id="frmFinalEvent" class="frmClass w3-row w3-padding-32">
+        <div class="w3-row w3-twothird w3-container">
+
+          <h1 class="w3-text-teal">Final Event</h1>
+
+          <table style="width: 105%; border-collapse: collapse; margin: 20px auto; font-family: Arial, sans-serif; border: 1px solid black; vertical-align: top;table-layout: fixed;">
+             <colgroup>
+                <col style="width: 12%;">
+                <col style="width: 18%;">
+                <col style="width: 70%;">
+              </colgroup>
+              <tr><th style="padding: 10px; text-align: left;">Time</th>
+                  <th style="padding: 10px; text-align: left;">Activity</th>
+                  <th style="padding: 10px; text-align: left;">Presentations</th></tr>
+              <tr>
+                  <td>8:50 - 9:00</td>
+                  <td>Welcome speech</td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>9:00 - 10:00</td>
+                  <td>Additional presentation</td>
+                  <td></td>
+              </tr>
+              <tr><td>10:00 - 11:30</td>
+                  <td>WP1</td>
+                  <td>Md Ataur Rahman, <i>Text Data Integration</i><br>
+                      Akter Yeasmin, <i>Data Fusion</i><br>
+                      Kapenekakis Antheas, <i>Scalable, Privacy-aware DBMS Data Synthesis</i></td>
+                </tr>
+
+              <tr class="break"><td>11:30 - 11:50</td><td colspan="2">Break</td></tr>
+
+              <tr><td>11:50 - 12:50</td>
+                  <td>WP2 Part 1</td>
+                  <td>Uchechukwu Njoku, <i>Comprehensive Approaches to Feature Selection in Machine Learning</i><br>
+                      Abduvakhobov Abduvoris, <i>Current Time Series Management Systems for Massive High Frequency Time Series</i><br>
+</td>
+                </tr>
+
+              <tr class="break"><td>12:50 - 13:50</td><td colspan="2">Lunch</td></tr>
+
+              <tr>
+                  <td>13:50 - 14:50</td>
+                  <td>WP2 Part 2</td>
+                  <td>Song Wu, <i>AIS-based Ship Trajectory Data</i><br>
+                      Kontaxakis Antonis, <i>Optimization techniques for Data Science</i></td>
+              </tr>
+
+              <tr class="break"><td>14:50 - 15:10</td><td colspan="2">Break</td></tr>
+
+              <tr>
+                  <td>15:10 - 16:40</td>
+                  <td>WP3</td>
+                  <td>Sasse David Rodrigo, <i>Trajectory Data for Traffic Analytics</i><br>
+Eros Fabrici, <i>Privacy-Preserving Blockchain-Based Federated Learning</i><br>
+Nematov Ikhtiyor, <i>Intent-Aware and Faithful Example-Based Explainability in Machine Learning</i></td>
+              </tr>
+
+              <tr class="break"><td>16:40 - 17:00</td><td colspan="2">Break</td></tr>
+
+              <tr>
+                  <td>17:00 - 18:30</td>
+                  <td>WP4</td>
+                  <td>Ibrahim Taha, <i>Table Search in Data Lakes: Methods, Indexing Techniques, and Challenges</i><br>
+Lunghi Daniele, <i>Adversarial machine learning in security applications</i><br>
+Christos Papadopoulos, <i>Approximate and Adaptive methods for Inference Queries over Unstructured Data</i>
+                  </td>
+                </tr>
+
+              <tr><td>18:30 - 19:00</td><td>Closing words</td><td></td></tr>
+          </table>
+
+
+              <p>The final event will take place at <a href="https://www.upc.edu/ca">UPC</a>.</p>
+
+          <p style="height: 300px;"></p>
+
+        </div>
+        <div class="w3-third w3-container"></div>
+      </div>
+
+
+
+      <!-- Students -->
+      <div id="frmStudents" class="frmClass w3-row w3-padding-32">
+       <div class="w3-row w3-twothird w3-container">
+         <h1 class="w3-text-teal">Students</h1>
+
+         <div id="content"></div>
+
+            <script>
+            function fetchData() {
+              // Nomi delle cartelle
+              const folderNames = [
+                'Abduvoris',
+                'Antheas',
+                'Antonios',
+                'Ataur',
+                'Daniele',
+                'Eros Fabrici',
+                'ibraheem',
+                'Ikhtiyor Nematov',
+                'Marcos',
+                'Rodrigo',
+                'Song WU',
+                'Uche',
+                'Yeasmin'
+              ];
+            
+              // Use Promise.all to fetch data for all folders in parallel
+              Promise.all(folderNames.map(folderName => {
+                // Fetch bio.txt for each folder
+                const bioPromise = fetch(`./ESR_Material/${folderName}/bio.txt`).then(response => response.text());
+            
+                // Fetch photo.jpg for each folder
+                const photoPromise = fetch(`./ESR_Material/${folderName}/photo.jpg`).then(response => response.blob());
+            
+                // Return a promise that resolves with both bio text and photo blob
+                return Promise.all([bioPromise, photoPromise]);
+              }))
+              .then(dataArray => {
+                // Process the data for each folder
+                dataArray.forEach(([bioText, photoBlob], index) => {
+                  // Assuming you want to display the data on the page
+                  displayData(folderNames[index], bioText, photoBlob);
+                });
+              })
+              .catch(error => console.error('Error fetching data:', error));
+            }
+            
+            function displayData(folderName, bioText, photoBlob) {
+              // Create an image element for the folder
+              var image = document.createElement('img');
+              image.src = URL.createObjectURL(photoBlob);
+              image.alt = `${folderName} Photo`;
+              // Create a new paragraph element for the folder
+              var paragraph = document.createElement('p');
+              paragraph.innerHTML = `<strong>${folderName}</strong><br>${bioText}`;
+            
+              
+            
+              // Append the paragraph and image to an existing container element with the ID "content"
+              var contentContainer = document.getElementById('content');
+                contentContainer.appendChild(image);
+            
+              contentContainer.appendChild(paragraph);
+            }
+            
+            // Load sections when the DOM is ready
+            document.addEventListener("DOMContentLoaded", function () {
+              fetchData();
+            });
+            </script>
+       </div>
+       <div class="w3-third w3-container"></div>
+      </div>
+
 
 
     <!-- end-of-main -->
